@@ -11,6 +11,9 @@ import Hospital.City;
 import Hospital.CityDirectory;
 import Hospital.Community;
 import Hospital.CommunityDirectory;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -55,6 +58,12 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
         lblTitle.setText("Add Community");
 
         lblCityName.setText("Select City");
+
+        txtCommunityName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCommunityNameKeyReleased(evt);
+            }
+        });
 
         btnSaveCommunity.setText("Save");
         btnSaveCommunity.addActionListener(new java.awt.event.ActionListener() {
@@ -119,6 +128,10 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (ValidFields()) {
             try {
+                if (!(txtCommunityName.getText().matches("^[a-zA-Z]{1,30}$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid community name.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+                }
                 Community community = new Community();
                 community.setName(txtCommunityName.getText());
                 CommunityDirectory communityDir = ((City) cmbCity.getSelectedItem()).getCityData();
@@ -139,6 +152,18 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
     private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCityActionPerformed
+
+    private void txtCommunityNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCommunityNameKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[a-zA-Z]{1,30}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtCommunityName.getText());
+        if (!match.matches()) {
+            txtCommunityName.setBackground(Color.red);
+        } else {
+            txtCommunityName.setBackground(null);
+        }
+    }//GEN-LAST:event_txtCommunityNameKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

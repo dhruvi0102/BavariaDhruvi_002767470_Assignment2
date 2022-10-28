@@ -13,6 +13,23 @@ public class Doctor extends Person {
     private String Hospital;
     private String Speciality;
     private String docCommunity;
+    private String docCity;
+
+    public String getDocCommunity() {
+        return docCommunity;
+    }
+
+    public void setDocCommunity(String docCommunity) {
+        this.docCommunity = docCommunity;
+    }
+
+    public String getDocCity() {
+        return docCity;
+    }
+
+    public void setDocCity(String docCity) {
+        this.docCity = docCity;
+    }
 
     public String getHospital() {
         return Hospital;

@@ -9,6 +9,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import Hospital.City;
 import Hospital.CityDirectory;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -51,6 +54,12 @@ public class AddCityJPanel extends javax.swing.JPanel {
 
         lblCityName.setText("City Name");
 
+        txtCityName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCityNameKeyReleased(evt);
+            }
+        });
+
         btnSaveCity.setText("Save");
         btnSaveCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -92,6 +101,10 @@ public class AddCityJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (ValidFields()) {
             try {
+                if (!(txtCityName.getText().matches("^[a-zA-Z]{1,30}$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid city name.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+                }
                 City city = new City();
                 city.setCityName(txtCityName.getText());
                 city = cityDirectory.addCity(city);
@@ -110,6 +123,18 @@ public class AddCityJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnSaveCityActionPerformed
 
+    private void txtCityNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityNameKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[a-zA-Z]{1,30}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtCityName.getText());
+        if (!match.matches()) {
+            txtCityName.setBackground(Color.red);
+        } else {
+            txtCityName.setBackground(null);
+        }
+    }//GEN-LAST:event_txtCityNameKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveCity;
@@ -120,6 +145,9 @@ public class AddCityJPanel extends javax.swing.JPanel {
     private boolean ValidFields() {
         if (!validField(txtCityName, "Please enter the city name")) {
             return false;
+        }
+        else { 
+        
         }
         return true;
     }

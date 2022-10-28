@@ -23,6 +23,7 @@ import Hospital.CommunityDirectory;
 import Hospital.House;
 import Hospital.Person;
 import Hospital.PersonDirectory;
+import java.awt.Color;
 
 /**
  *
@@ -195,6 +196,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
                 txtPHeightActionPerformed(evt);
             }
         });
+        txtPHeight.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPHeightKeyReleased(evt);
+            }
+        });
 
         lblPFirstNameErr.setForeground(new java.awt.Color(255, 0, 0));
 
@@ -215,6 +221,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
+        txtPSsn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPSsnActionPerformed(evt);
+            }
+        });
         txtPSsn.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPSsnKeyReleased(evt);
@@ -426,6 +437,30 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Please enter valid last name. Last name can only contain alphabets", "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
+             else if (!(txtPAge.getText().matches("\\d{1,3}"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid age.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            /*else if (!(txtPPhoneNum.getText().matches("\\\\d{0,12}"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid Phone Number.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }*/
+            else if (!(txtPWeight.getText().matches("\\d{1,3}"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid weight.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            else if (!(txtPHeight.getText().matches("\\d{1,3}"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid Height.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            else if (!(txtPSsn.getText().matches("^(?!666|000|9\\d{2})\\d{3}"
+                + "-(?!00)\\d{2}-"
+                + "(?!0{4})\\d{4}$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid SSN.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            
             personDemographics.setFirstName(txtPFirstName.getText());
             personDemographics.setLastName(txtPLastName.getText());
             personDemographics.setPhoneNumber(phoneNum);
@@ -466,7 +501,8 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(pattern);
         Matcher match = patt.matcher(txtPFirstName.getText());
         if (!match.matches()) {
-            lblPFirstNameErr.setText("Incorrect firstname");
+            //lblPFirstNameErr.setText("Incorrect firstname");
+            txtPFirstName.setBackground(Color.red);
             //            lblPLastNameErr.setText("Incorrect firstname");
             //            lblPHeightErr.setText("Incorrect firstname");
             //            lblPPhoneNumErr.setText("Incorrect firstname");
@@ -477,6 +513,7 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
 
         } else {
             lblPFirstNameErr.setText(null);
+            txtPFirstName.setBackground(null);
         }
     }//GEN-LAST:event_txtPFirstNameKeyReleased
 
@@ -490,9 +527,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(pattern);
         Matcher match = patt.matcher(txtPLastName.getText());
         if (!match.matches()) {
-            lblPLastNameErr.setText("Incorrect last name");
+            //lblPLastNameErr.setText("Incorrect last name");
+            txtPLastName.setBackground(Color.red);
         } else {
             lblPLastNameErr.setText(null);
+            txtPLastName.setBackground(null);
         }
     }//GEN-LAST:event_txtPLastNameKeyReleased
 
@@ -506,9 +545,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(agePattern);
         Matcher match = patt.matcher(txtPAge.getText());
         if (!match.matches()) {
-            lblPAgeErr.setText("Incorrect age");
+            //lblPAgeErr.setText("Incorrect age");
+            txtPAge.setBackground(Color.red);
         } else {
             lblPAgeErr.setText(null);
+            txtPAge.setBackground(null);
         }
     }//GEN-LAST:event_txtPAgeKeyReleased
 
@@ -554,9 +595,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         }
         Matcher match = patt.matcher(txtPPhoneNum.getText());
         if (!match.matches()) {
-            lblPPhoneNumErr.setText("Incorrect phone number");
+            //lblPPhoneNumErr.setText("Incorrect phone number");
+            txtPPhoneNum.setBackground(Color.red);
         } else {
             lblPPhoneNumErr.setText(null);
+            txtPPhoneNum.setBackground(null);
         }
     }//GEN-LAST:event_txtPPhoneNumKeyReleased
 
@@ -575,9 +618,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(pattern);
         Matcher match = patt.matcher(txtPWeight.getText());
         if (!match.matches()) {
-            lblPWeightErr.setText("Incorrect weight format");
+            //lblPWeightErr.setText("Incorrect weight format");
+            txtPWeight.setBackground(Color.red);
         } else {
             lblPWeightErr.setText(null);
+            txtPWeight.setBackground(null);
         }
     }//GEN-LAST:event_txtPWeightKeyReleased
 
@@ -597,9 +642,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(regex);
         Matcher match = patt.matcher(txtPSsn.getText());
         if (!match.matches()) {
-            lblPSsnErr.setText("Incorrect social security number");
+            //lblPSsnErr.setText("Incorrect social security number");
+            txtPSsn.setBackground(Color.red);
         } else {
             lblPSsnErr.setText(null);
+            txtPSsn.setBackground(null);
         }
     }//GEN-LAST:event_txtPSsnKeyReleased
 
@@ -634,6 +681,24 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
     private void cmbCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCommunityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCommunityActionPerformed
+
+    private void txtPSsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPSsnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPSsnActionPerformed
+
+    private void txtPHeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPHeightKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[-?\\d+(\\.\\d+)?]{0,30}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtPHeight.getText());
+        if (!match.matches()) {
+            //lblPWeightErr.setText("Incorrect weight format");
+            txtPHeight.setBackground(Color.red);
+        } else {
+            //txtPHeight.setText(null);
+            txtPHeight.setBackground(null);
+        }
+    }//GEN-LAST:event_txtPHeightKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

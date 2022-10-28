@@ -30,7 +30,7 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.cityDirectory = cityDirectory;
-        populateCityCombo();
+        //populateCityCombo();
     }
 
 
@@ -212,7 +212,7 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         
         cmbSelectCityy.removeAllItems();
         for(City c: cityDirectory.getCities()){
-            cmbSelectCityy.addItem(c.getCityName());
+            cmbSelectCityy.addItem(c.toString());
         }
     }
     
@@ -220,7 +220,7 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         cmbSelectCommunity.removeAllItems();
         if (cmbSelectCityy.getSelectedItem() != null) {
             for (Community s : ((City) cmbSelectCityy.getSelectedItem()).getCityData().getCommunities()) {
-                cmbSelectCommunity.addItem(s.getName());
+                cmbSelectCommunity.addItem(s.toString());
             }
         }
     }

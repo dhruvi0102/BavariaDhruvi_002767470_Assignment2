@@ -6,6 +6,7 @@ package ui.doctor;
 
 import Hospital.City;
 import Hospital.CityDirectory;
+import Hospital.Community;
 import Hospital.Doctor;
 import Hospital.DoctorDirectory;
 import Hospital.Patient;
@@ -17,9 +18,11 @@ import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -63,13 +66,15 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
         txtLastName = new javax.swing.JTextField();
         txt_Hospital = new javax.swing.JTextField();
         txtFirstName = new javax.swing.JTextField();
-        txt_Community = new javax.swing.JTextField();
         lblFirstName = new javax.swing.JLabel();
         lblHospital = new javax.swing.JLabel();
         lblPatientAge = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
-        txtPatientAge = new javax.swing.JTextField();
+        txtAge = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        cmbCommunity = new javax.swing.JComboBox<>();
+        lblCity = new javax.swing.JLabel();
+        cmbCity = new javax.swing.JComboBox<>();
 
         lblSpeciality.setText("Speciality");
 
@@ -144,17 +149,6 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        txt_Community.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_CommunityActionPerformed(evt);
-            }
-        });
-        txt_Community.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_CommunityKeyReleased(evt);
-            }
-        });
-
         lblFirstName.setText("First Name");
 
         lblHospital.setText("Hospital");
@@ -168,20 +162,36 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtPatientAge.setEnabled(false);
-        txtPatientAge.addActionListener(new java.awt.event.ActionListener() {
+        txtAge.setEnabled(false);
+        txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPatientAgeActionPerformed(evt);
+                txtAgeActionPerformed(evt);
             }
         });
-        txtPatientAge.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPatientAgeKeyReleased(evt);
+                txtAgeKeyReleased(evt);
             }
         });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel1.setText("Add Doctor Details");
+
+        cmbCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boylston" }));
+        cmbCommunity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCommunityActionPerformed(evt);
+            }
+        });
+
+        lblCity.setText("City");
+
+        cmbCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", " " }));
+        cmbCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCityActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -200,20 +210,9 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                             .addComponent(lblLastName)
                             .addComponent(lblSpeciality)
                             .addComponent(lblHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPatientAge)
-                            .addComponent(lblCommunity))
+                            .addComponent(lblPatientAge))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txt_Community, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txt_Hospital, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txt_Speciality, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(64, 64, 64)
-                                        .addComponent(lblPatientPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 202, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,17 +220,33 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                                         .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnSearchPatient))
-                                    .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txt_Hospital, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                    .addComponent(txt_Speciality, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
+                                .addGap(64, 64, 64)
+                                .addComponent(lblPatientPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 207, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblCity)
+                                    .addComponent(lblCommunity))
+                                .addGap(56, 56, 56)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(564, 564, 564)
                     .addComponent(lblDateErr, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addContainerGap(17, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +270,7 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                             .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblPatientAge))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -267,25 +282,29 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                             .addComponent(txt_Hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(lblPatientPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_Community, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCommunity))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCity)
+                    .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCommunity)
+                    .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addContainerGap(108, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(256, 256, 256)
                     .addComponent(lblDateErr, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(178, Short.MAX_VALUE)))
+                    .addContainerGap(144, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
         // TODO add your handling code here:
-       Doctor patient = DoctorDirectory.searchDoctor(txtSsn.getText());
+       Doctor doctor = DoctorDirectory.searchDoctor(txtSsn.getText());
         //DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-        doctorInfo = patient;
+        doctorInfo = doctor;
         if (doctorInfo == null) {
             List<City> cities = cityDirectory.getCities();
 
@@ -304,7 +323,7 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                     txtFirstName.setText(doctorInfo.getFirstName());
                     txtLastName.setText(doctorInfo.getLastName());
                     //txtPatientDob.setText(dateFormat.format(patientInfo.getDob()));
-                    txtPatientAge.setText(String.valueOf(doctorInfo.getAge()));
+                    txtAge.setText(String.valueOf(doctorInfo.getAge()));
                     lblPatientPicture.setIcon(new ImageIcon(doctorInfo.getPersonPicture()));
 
                     DoctorDirectory.addDoctor(doctorInfo);
@@ -315,11 +334,11 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "SSN number did not match wth any person", "Info", JOptionPane.WARNING_MESSAGE);
             }
         } else {
-            this.doctorInfo = patient;
+            this.doctorInfo = doctor;
             txtFirstName.setText(doctorInfo.getFirstName());
             txtLastName.setText(doctorInfo.getLastName());
             //txtPatientDob.setText(dateFormat.format(patientInfo.getDob()));
-            txtPatientAge.setText(String.valueOf(doctorInfo.getAge()));
+            txtAge.setText(String.valueOf(doctorInfo.getAge()));
             lblPatientPicture.setIcon(new ImageIcon(doctorInfo.getPersonPicture()));
         }
               
@@ -363,24 +382,16 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFirstNameKeyReleased
 
-    private void txt_CommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_CommunityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_CommunityActionPerformed
-
-    private void txt_CommunityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_CommunityKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txt_CommunityKeyReleased
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
        int SSN = Integer.parseInt(txtSsn.getText());
        String Firstname = txtFirstName.getText();
        String LastName = txtLastName.getText();
-       int Age = Integer.parseInt(txtPatientAge.getText());
+       int Age = Integer.parseInt(txtAge.getText());
        String speciality = txt_Speciality.getText();
        String Hospital = txt_Hospital.getText();
-       String Community = txt_Community.getText();
+       String City = cmbCity.getSelectedItem().toString();
+       String Community = cmbCommunity.getSelectedItem().toString();
        
        Doctor doctor = doctorDirectory.addnewDoctor();
        
@@ -397,19 +408,31 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
        
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtPatientAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientAgeActionPerformed
+    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPatientAgeActionPerformed
+    }//GEN-LAST:event_txtAgeActionPerformed
 
-    private void txtPatientAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientAgeKeyReleased
+    private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPatientAgeKeyReleased
+    }//GEN-LAST:event_txtAgeKeyReleased
+
+    private void cmbCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCommunityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCommunityActionPerformed
+
+    private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
+        // TODO add your handling code here:
+        populateCityCombo();
+    }//GEN-LAST:event_cmbCityActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearchPatient;
+    private javax.swing.JComboBox<String> cmbCity;
+    private javax.swing.JComboBox<String> cmbCommunity;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblDateErr;
     private javax.swing.JLabel lblFirstName;
@@ -419,12 +442,30 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPatientPicture;
     private javax.swing.JLabel lblSpeciality;
     private javax.swing.JLabel lblSsn;
+    private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
-    private javax.swing.JTextField txtPatientAge;
     private javax.swing.JTextField txtSsn;
-    private javax.swing.JTextField txt_Community;
     private javax.swing.JTextField txt_Hospital;
     private javax.swing.JTextField txt_Speciality;
     // End of variables declaration//GEN-END:variables
+ 
+    
+    
+    private void populateCityCombo() {
+        
+        String[] s = (String[]) cityDirectory.getCities().toArray();
+        DefaultComboBoxModel dm = new DefaultComboBoxModel(s);
+        cmbCity.setModel(dm);
+    }
+    
+    private void populateCommunityCombo() {
+       /*cmbCommunity.removeAllItems();
+        if (cmbCity.getSelectedItem() != null) {
+            for (Community s : ((City) cmbCity.getSelectedItem()).getCityData().getCommunities()) {
+                cmbCommunity.addItem(s);
+            }
+        }*/
+    }
+
 }

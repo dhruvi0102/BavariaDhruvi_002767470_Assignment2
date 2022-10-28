@@ -124,7 +124,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btn_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_viewActionPerformed
         // TODO add your handling code here:
-        ViewDoctorTableJPanel vdtjp = new ViewDoctorTableJPanel(workAreaJPanel, cityDirectory, doctorDirectory);
+        ViewforDoctorTableJPanel vdtjp = new ViewforDoctorTableJPanel(workAreaJPanel, cityDirectory, doctorDirectory);
         workAreaJPanel.add("PatientTableJPanel", vdtjp);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

@@ -23,6 +23,7 @@ import Hospital.PatientDirectory;
 import Hospital.Person;
 import Hospital.PersonDirectory;
 import Hospital.VitalSigns;
+import java.awt.Color;
 
 /**
  *
@@ -377,9 +378,11 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(agePattern);
         Matcher match = patt.matcher(txtPulse.getText());
         if (!match.matches()) {
-            lblPulseErr.setText("Incorrect pulse format");
+            //lblPulseErr.setText("Incorrect pulse format");
+            txtPulse.setBackground(Color.red);
         } else {
             lblPulseErr.setText(null);
+            txtPulse.setBackground(null);
         }
     }//GEN-LAST:event_txtPulseKeyReleased
 
@@ -407,6 +410,18 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
                 temperature = Double.parseDouble(txtTemperature.getText());
                 pressure = Double.parseDouble(txtPressure.getText());
                 pulse = Integer.parseInt(txtPulse.getText());
+                /*if (!(txtTemperature.getText().matches("\\d{1,3}"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid temperature.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+                }
+                else if (!(txtPressure.getText().matches("\\d{1,3}"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid pressure.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+                }
+                else if (!(txtPulse.getText().matches("\\d{1,3}"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid pulse.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+                }*/
                 // dob = txtDate.getDate();
                 if (lblPulseErr.getText() != null && lblPulseErr.getText().trim().length() != 0) {
                     JOptionPane.showMessageDialog(this, "Please enter 3 digit pulse rate", "Info", JOptionPane.INFORMATION_MESSAGE);
@@ -442,9 +457,11 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(pattern);
         Matcher match = patt.matcher(txtTemperature.getText());
         if (!match.matches()) {
-            lblTempErr.setText("Incorrect temerature format");
+            //lblTempErr.setText("Incorrect temerature format");
+            txtTemperature.setBackground(Color.red);
         } else {
             lblTempErr.setText(null);
+            txtTemperature.setBackground(null);
         }
     }//GEN-LAST:event_txtTemperatureKeyReleased
 
@@ -458,9 +475,11 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         Pattern patt = Pattern.compile(pattern);
         Matcher match = patt.matcher(txtPressure.getText());
         if (!match.matches()) {
-            lblBPErr.setText("Incorrect blood pressure format");
+            //lblBPErr.setText("Incorrect blood pressure format");
+            txtPressure.setBackground(Color.red);
         } else {
             lblBPErr.setText(null);
+            txtPressure.setBackground(null);
         }
     }//GEN-LAST:event_txtPressureKeyReleased
 
