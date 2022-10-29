@@ -65,6 +65,9 @@ public class ViewforDoctorTableJPanel extends javax.swing.JPanel {
         txtCity = new javax.swing.JTextField();
         txtCommunity = new javax.swing.JTextField();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        btn_View.setForeground(new java.awt.Color(0, 102, 102));
         btn_View.setText("View");
         btn_View.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +75,7 @@ public class ViewforDoctorTableJPanel extends javax.swing.JPanel {
             }
         });
 
+        btn_Update.setForeground(new java.awt.Color(0, 102, 102));
         btn_Update.setText("Update");
         btn_Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -79,6 +83,7 @@ public class ViewforDoctorTableJPanel extends javax.swing.JPanel {
             }
         });
 
+        btn_Delete.setForeground(new java.awt.Color(0, 102, 102));
         btn_Delete.setText("Delete");
         btn_Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,8 +123,10 @@ public class ViewforDoctorTableJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblCommunity.setText("Community");
 
+        lblLastName.setForeground(new java.awt.Color(0, 102, 102));
         lblLastName.setText("Last Name");
 
         txtLastName.setEnabled(false);
@@ -157,10 +164,13 @@ public class ViewforDoctorTableJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblFirstName.setForeground(new java.awt.Color(0, 102, 102));
         lblFirstName.setText("First Name");
 
+        lblHospital.setForeground(new java.awt.Color(0, 102, 102));
         lblHospital.setText("Hospital");
 
+        lblPatientAge.setForeground(new java.awt.Color(0, 102, 102));
         lblPatientAge.setText("Age");
 
         txtAge.setEnabled(false);
@@ -175,8 +185,10 @@ public class ViewforDoctorTableJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCity.setForeground(new java.awt.Color(0, 102, 102));
         lblCity.setText("City");
 
+        lblSpeciality.setForeground(new java.awt.Color(0, 102, 102));
         lblSpeciality.setText("Speciality");
 
         txtSsn.addActionListener(new java.awt.event.ActionListener() {
@@ -185,6 +197,7 @@ public class ViewforDoctorTableJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblSsn.setForeground(new java.awt.Color(0, 102, 102));
         lblSsn.setText("Enter SSN");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

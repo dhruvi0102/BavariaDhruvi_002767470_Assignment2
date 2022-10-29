@@ -24,11 +24,8 @@ public class AddCityJPanel extends javax.swing.JPanel {
      */
     JPanel workAreaJPanel;
     CityDirectory cityDirectory;
-//    public AddCityJPanel() {
-//        initComponents();
-//    }
-
-    AddCityJPanel(JPanel workAreaJPanel, CityDirectory cityDirectory) {
+    
+    public AddCityJPanel(JPanel workAreaJPanel, CityDirectory cityDirectory) {
         initComponents();
         this.workAreaJPanel = workAreaJPanel;
         this.cityDirectory = cityDirectory;
@@ -48,10 +45,14 @@ public class AddCityJPanel extends javax.swing.JPanel {
         txtCityName = new javax.swing.JTextField();
         btnSaveCity = new javax.swing.JButton();
 
-        lblTitle.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
-        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblTitle.setText("Add City");
+        setBackground(new java.awt.Color(204, 204, 255));
 
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 102, 102));
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Add New City");
+
+        lblCityName.setForeground(new java.awt.Color(0, 102, 102));
         lblCityName.setText("City Name");
 
         txtCityName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -60,6 +61,7 @@ public class AddCityJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSaveCity.setForeground(new java.awt.Color(0, 102, 102));
         btnSaveCity.setText("Save");
         btnSaveCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,29 +73,29 @@ public class AddCityJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSaveCity)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSaveCity)
+                    .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(lblTitle)
-                .addGap(58, 58, 58)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCityName)
                     .addComponent(txtCityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSaveCity)
-                .addContainerGap(125, Short.MAX_VALUE))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -116,8 +118,6 @@ public class AddCityJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Please check the form data", "Info", JOptionPane.ERROR_MESSAGE);
                 return;
             }
-            //CityWorkAreaJPanel.btnNewCommunity.setEnabled(true);
-            //CityWorkAreaJPanel.btnManageCity.setEnabled(true);
 
             JOptionPane.showMessageDialog(null, "City added successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
         }

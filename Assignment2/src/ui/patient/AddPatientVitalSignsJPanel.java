@@ -77,26 +77,21 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         txtSsn = new javax.swing.JTextField();
         btnSearchPatient = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
-        lblPatientPicture = new javax.swing.JLabel();
         txtPatientAge = new javax.swing.JTextField();
         lblPatientAge = new javax.swing.JLabel();
+        lblOxygen = new javax.swing.JLabel();
+        txtOxygen = new javax.swing.JTextField();
+        lblDate = new javax.swing.JLabel();
+        txtDate = new javax.swing.JTextField();
 
-        txtPulse.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPulseActionPerformed(evt);
-            }
-        });
+        setBackground(new java.awt.Color(204, 204, 255));
+
         txtPulse.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPulseKeyReleased(evt);
             }
         });
 
-        txtPressure.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPressureActionPerformed(evt);
-            }
-        });
         txtPressure.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPressureKeyReleased(evt);
@@ -105,13 +100,9 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
 
         lblDateErr.setForeground(new java.awt.Color(255, 0, 0));
 
-        lblPulse.setText("Pulse");
+        lblPulse.setForeground(new java.awt.Color(0, 102, 102));
+        lblPulse.setText("Pulse Rate");
 
-        txtTemperature.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTemperatureActionPerformed(evt);
-            }
-        });
         txtTemperature.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtTemperatureKeyReleased(evt);
@@ -124,8 +115,10 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
 
         lblTempErr.setForeground(new java.awt.Color(255, 0, 0));
 
+        lblTemperature.setForeground(new java.awt.Color(0, 102, 102));
         lblTemperature.setText("Temperature");
 
+        btnSave.setForeground(new java.awt.Color(0, 102, 102));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,44 +126,23 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblPressure.setForeground(new java.awt.Color(0, 102, 102));
         lblPressure.setText("Blood Pressure");
 
-        lblFirstName.setText("Patient first name");
+        lblFirstName.setForeground(new java.awt.Color(0, 102, 102));
+        lblFirstName.setText("First Name");
 
         txtFirstName.setEnabled(false);
-        txtFirstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFirstNameActionPerformed(evt);
-            }
-        });
-        txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtFirstNameKeyReleased(evt);
-            }
-        });
 
         txtLastName.setEnabled(false);
-        txtLastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLastNameActionPerformed(evt);
-            }
-        });
-        txtLastName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtLastNameKeyReleased(evt);
-            }
-        });
 
-        lblLastName.setText("Patient last name");
+        lblLastName.setForeground(new java.awt.Color(0, 102, 102));
+        lblLastName.setText("Last Name");
 
-        lblSsn.setText("Enter PersonID");
+        lblSsn.setForeground(new java.awt.Color(0, 102, 102));
+        lblSsn.setText("SSN");
 
-        txtSsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSsnActionPerformed(evt);
-            }
-        });
-
+        btnSearchPatient.setForeground(new java.awt.Color(0, 102, 102));
         btnSearchPatient.setText("Search Patient");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,80 +150,75 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblTitle.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 102, 102));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Add patient Vitals");
 
-        lblPatientPicture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPatientPicture.setText("Patient picture");
-        lblPatientPicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         txtPatientAge.setEnabled(false);
-        txtPatientAge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPatientAgeActionPerformed(evt);
-            }
-        });
-        txtPatientAge.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPatientAgeKeyReleased(evt);
-            }
-        });
 
-        lblPatientAge.setText("Patient Age");
+        lblPatientAge.setForeground(new java.awt.Color(0, 102, 102));
+        lblPatientAge.setText("Age");
+
+        lblOxygen.setForeground(new java.awt.Color(0, 102, 102));
+        lblOxygen.setText("Oxygen");
+
+        lblDate.setForeground(new java.awt.Color(0, 102, 102));
+        lblDate.setText("Date");
+
+        txtDate.setForeground(new java.awt.Color(0, 102, 102));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblPatientPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPatientAge)
-                    .addComponent(lblFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblLastName)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(btnSearchPatient))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(83, 83, 83)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(txtFirstName)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtLastName)
-                                            .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(18, 18, 18)
+                        .addComponent(lblTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(407, 407, 407)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblBPErr, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTempErr, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(83, 83, 83)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblDateErr, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblDate)
+                                    .addGap(96, 96, 96)
+                                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(252, 252, 252)
+                                    .addComponent(lblPulseErr, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblDateErr, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(lblPulseErr, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(lblSsn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblPatientAge, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblPressure, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                        .addComponent(lblPulse, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE)
+                                        .addComponent(lblOxygen, javax.swing.GroupLayout.Alignment.LEADING))
+                                    .addComponent(lblTemperature, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(36, 36, 36)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtLastName)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnSearchPatient))
+                                    .addComponent(txtFirstName)
+                                    .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {txtFirstName, txtLastName, txtPressure, txtPulse, txtTemperature});
@@ -263,71 +230,65 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(lblTitle)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPatientPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSsn)
-                            .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSearchPatient))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblFirstName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLastName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPatientAge)
-                            .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(45, 45, 45)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblTemperature)
-                    .addComponent(lblTempErr))
-                .addGap(13, 13, 13)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblPressure)
-                    .addComponent(lblBPErr))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSsn)
+                    .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchPatient))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblFirstName)
+                    .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLastName)
+                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPatientAge)
+                    .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblTemperature))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPressure)
+                    .addComponent(txtPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblPulse)
-                    .addComponent(lblPulseErr))
-                .addGap(12, 12, 12)
-                .addComponent(lblDateErr, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20)
-                .addComponent(btnSave)
-                .addContainerGap())
+                    .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(lblBPErr)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblPulseErr))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblTempErr)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblOxygen)
+                            .addComponent(txtOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblDate)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(17, 17, 17)
+                        .addComponent(lblDateErr, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSave)))
+                .addGap(76, 76, 76))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblFirstName, lblLastName, lblPressure, lblPulse, lblTemperature});
 
     }// </editor-fold>//GEN-END:initComponents
-
-    private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFirstNameActionPerformed
-
-    private void txtFirstNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFirstNameKeyReleased
-
-    private void txtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameActionPerformed
-
-    private void txtLastNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameKeyReleased
-
-    private void txtSsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSsnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSsnActionPerformed
 
     private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
         // TODO add your handling code here:
@@ -344,17 +305,12 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
                     patientInfo.setSocialSecurityNum(person.getSocialSecurityNum());
                     patientInfo.setFirstName(person.getFirstName());
                     patientInfo.setLastName(person.getLastName());
-                    patientInfo.setAddress(person.getAddress());
-                    patientInfo.setDob(person.getDob());
                     patientInfo.setAge(person.getAge());
-                    patientInfo.setAddress(person.getAddress());
                     patientInfo.setPersonPicture(person.getPersonPicture());
+                    
                     txtFirstName.setText(patientInfo.getFirstName());
                     txtLastName.setText(patientInfo.getLastName());
-                    //txtPatientDob.setText(dateFormat.format(patientInfo.getDob()));
                     txtPatientAge.setText(String.valueOf(patientInfo.getAge()));
-                    lblPatientPicture.setIcon(new ImageIcon(patientInfo.getPersonPicture()));
-
                     PatientDirectory.addPatient(patientInfo);
                     return;
                 }
@@ -366,9 +322,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             this.patientInfo = patient;
             txtFirstName.setText(patientInfo.getFirstName());
             txtLastName.setText(patientInfo.getLastName());
-            //txtPatientDob.setText(dateFormat.format(patientInfo.getDob()));
             txtPatientAge.setText(String.valueOf(patientInfo.getAge()));
-            lblPatientPicture.setIcon(new ImageIcon(patientInfo.getPersonPicture()));
         }
     }//GEN-LAST:event_btnSearchPatientActionPerformed
 
@@ -386,17 +340,14 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtPulseKeyReleased
 
-    private void txtPulseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPulseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPulseActionPerformed
-
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         double temperature;
         double pressure;
         int pulse;
-        Date dob;
-
+        int oxygen;
+        String date = txtDate.getText();
+        
         if (patientInfo == null) {
             JOptionPane.showMessageDialog(this, "Invalid patient", "Info", JOptionPane.WARNING_MESSAGE);
             return;
@@ -410,19 +361,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
                 temperature = Double.parseDouble(txtTemperature.getText());
                 pressure = Double.parseDouble(txtPressure.getText());
                 pulse = Integer.parseInt(txtPulse.getText());
-                /*if (!(txtTemperature.getText().matches("\\d{1,3}"))) {
-                JOptionPane.showMessageDialog(this, "Please enter valid temperature.", "Info", JOptionPane.INFORMATION_MESSAGE);
-                return;
-                }
-                else if (!(txtPressure.getText().matches("\\d{1,3}"))) {
-                JOptionPane.showMessageDialog(this, "Please enter valid pressure.", "Info", JOptionPane.INFORMATION_MESSAGE);
-                return;
-                }
-                else if (!(txtPulse.getText().matches("\\d{1,3}"))) {
-                JOptionPane.showMessageDialog(this, "Please enter valid pulse.", "Info", JOptionPane.INFORMATION_MESSAGE);
-                return;
-                }*/
-                // dob = txtDate.getDate();
+                oxygen = Integer.parseInt(txtOxygen.getText());
                 if (lblPulseErr.getText() != null && lblPulseErr.getText().trim().length() != 0) {
                     JOptionPane.showMessageDialog(this, "Please enter 3 digit pulse rate", "Info", JOptionPane.INFORMATION_MESSAGE);
                     return;
@@ -437,17 +376,18 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             vs.setTemperature(temperature);
             vs.setBloodPressure(pressure);
             vs.setPulse(pulse);
-
-            String pattern = "MM/dd/yyyy";
-            DateFormat df = new SimpleDateFormat(pattern);
-            //vs.setDate(df.format(dob));
-
+            vs.setOxygen(oxygen);
+            vs.setDate(date);
+            
             JOptionPane.showMessageDialog(this, "New Vital Signs added");
-
+            txtSsn.setText("");
+            txtFirstName.setText("");
+            txtLastName.setText("");
+            txtPatientAge.setText("");
             txtTemperature.setText("");
             txtPressure.setText("");
             txtPulse.setText("");
-            //txtDate.setDate(null);
+            txtDate.setText("");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -465,10 +405,6 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtTemperatureKeyReleased
 
-    private void txtTemperatureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTemperatureActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTemperatureActionPerformed
-
     private void txtPressureKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPressureKeyReleased
         // TODO add your handling code here:
         String pattern = "^[-?\\d+(\\.\\d+)?]{0,30}$";
@@ -483,28 +419,17 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtPressureKeyReleased
 
-    private void txtPressureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPressureActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPressureActionPerformed
-
-    private void txtPatientAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientAgeKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPatientAgeKeyReleased
-
-    private void txtPatientAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPatientAgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPatientAgeActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearchPatient;
     private javax.swing.JLabel lblBPErr;
+    private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDateErr;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblLastName;
+    private javax.swing.JLabel lblOxygen;
     private javax.swing.JLabel lblPatientAge;
-    private javax.swing.JLabel lblPatientPicture;
     private javax.swing.JLabel lblPressure;
     private javax.swing.JLabel lblPulse;
     private javax.swing.JLabel lblPulseErr;
@@ -512,8 +437,10 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblTempErr;
     private javax.swing.JLabel lblTemperature;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JTextField txtDate;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
+    private javax.swing.JTextField txtOxygen;
     private javax.swing.JTextField txtPatientAge;
     private javax.swing.JTextField txtPressure;
     private javax.swing.JTextField txtPulse;

@@ -9,7 +9,7 @@ import java.awt.Component;
 import javax.swing.JPanel;
 import Hospital.CityDirectory;
 import Hospital.PatientDirectory;
-import ui.LoginScreen;
+import ui.MainScreen;
 
 /**
  *
@@ -45,21 +45,18 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         menuBarJPanel = new javax.swing.JPanel();
-        btnAddPatientVital = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnAddPatientVital = new javax.swing.JButton();
         btnViewPatientHistory = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
+        setForeground(new java.awt.Color(204, 204, 255));
+
         jSplitPane1.setDividerLocation(80);
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        btnAddPatientVital.setText("Add Patient Vital Signs");
-        btnAddPatientVital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddPatientVitalActionPerformed(evt);
-            }
-        });
+        menuBarJPanel.setBackground(new java.awt.Color(204, 204, 255));
 
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,7 +64,16 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewPatientHistory.setText("View Patient History");
+        btnAddPatientVital.setForeground(new java.awt.Color(0, 102, 102));
+        btnAddPatientVital.setText("Add Vitals");
+        btnAddPatientVital.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPatientVitalActionPerformed(evt);
+            }
+        });
+
+        btnViewPatientHistory.setForeground(new java.awt.Color(0, 102, 102));
+        btnViewPatientHistory.setText("View History");
         btnViewPatientHistory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewPatientHistoryActionPerformed(evt);
@@ -80,38 +86,48 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
             menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuBarJPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddPatientVital)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnViewPatientHistory)
-                .addGap(140, 140, 140))
+                .addGroup(menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnViewPatientHistory, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(menuBarJPanelLayout.createSequentialGroup()
+                        .addGroup(menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnBack)
+                            .addComponent(btnAddPatientVital, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         menuBarJPanelLayout.setVerticalGroup(
             menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarJPanelLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addGroup(menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddPatientVital)
-                    .addComponent(btnBack)
-                    .addComponent(btnViewPatientHistory))
-                .addGap(27, 27, 27))
+            .addGroup(menuBarJPanelLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAddPatientVital)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnViewPatientHistory)
+                .addContainerGap(331, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setTopComponent(menuBarJPanel);
+        jSplitPane1.setLeftComponent(menuBarJPanel);
 
+        workAreaJPanel.setBackground(new java.awt.Color(204, 204, 255));
         workAreaJPanel.setLayout(new java.awt.CardLayout());
-        jSplitPane1.setRightComponent(workAreaJPanel);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(workAreaJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(workAreaJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -125,8 +141,8 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        //        LoginScreen loginScreen = new LoginScreen(mainWorkArea, cityDirectory);
-        //        mainWorkArea.add("LoginScreen", loginScreen);
+        //        MainScreen loginScreen = new MainScreen(mainWorkArea, cityDirectory);
+        //        mainWorkArea.add("MainScreen", loginScreen);
         //        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         //        layout.next(mainWorkArea);
 
@@ -134,7 +150,7 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
 
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        LoginScreen loginPanel = (LoginScreen) component;
+        MainScreen loginPanel = (MainScreen) component;
         //        loginPanel.populateSupplierCombo();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();

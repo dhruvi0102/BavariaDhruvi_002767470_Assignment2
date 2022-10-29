@@ -9,6 +9,7 @@ package Hospital;
  * @author dhruv
  */
 public class VitalSigns {
+    private String date;
     private double temperature; //decimals
     private double bloodPressure;   //decimals
     private int pulse;
@@ -21,7 +22,6 @@ public class VitalSigns {
     public void setOxygen(int oxygen) {
         this.oxygen = oxygen;
     }
-    private String date;
 
     public double getTemperature() {
         return temperature;

@@ -58,23 +58,22 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
 
         lblCityName = new javax.swing.JLabel();
         cmbCity = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        lblCommunity = new javax.swing.JLabel();
         cmbCommunity = new javax.swing.JComboBox();
         btnSavePerson = new javax.swing.JButton();
         lblPDemographics = new javax.swing.JLabel();
         lblPFirstName = new javax.swing.JLabel();
         lblPLastName = new javax.swing.JLabel();
         lblPPhoneNum = new javax.swing.JLabel();
-        lblPHeight = new javax.swing.JLabel();
+        lblGender = new javax.swing.JLabel();
         lblPAge = new javax.swing.JLabel();
-        lblPWeight = new javax.swing.JLabel();
+        lblEmail = new javax.swing.JLabel();
         lblPSsn = new javax.swing.JLabel();
         txtPFirstName = new javax.swing.JTextField();
         txtPLastName = new javax.swing.JTextField();
         txtPPhoneNum = new javax.swing.JTextField();
         txtPAge = new javax.swing.JTextField();
-        txtPWeight = new javax.swing.JTextField();
-        txtPHeight = new javax.swing.JTextField();
+        txtEmail = new javax.swing.JTextField();
         lblPFirstNameErr = new javax.swing.JLabel();
         lblPLastNameErr = new javax.swing.JLabel();
         lblPPhoneNumErr = new javax.swing.JLabel();
@@ -86,9 +85,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         lblPDobErr = new javax.swing.JLabel();
         lblPHouseName = new javax.swing.JLabel();
         txtPHouseName = new javax.swing.JTextField();
-        btnUploadPersonPic = new javax.swing.JButton();
-        lblPersonPicture = new javax.swing.JLabel();
+        cmbGender = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        lblCityName.setForeground(new java.awt.Color(0, 102, 102));
         lblCityName.setText("Select City");
 
         cmbCity.addActionListener(new java.awt.event.ActionListener() {
@@ -97,7 +98,8 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("Select Community");
+        lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
+        lblCommunity.setText("Select Community");
 
         cmbCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +107,7 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSavePerson.setForeground(new java.awt.Color(0, 102, 102));
         btnSavePerson.setText("Save");
         btnSavePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,23 +115,31 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblPDemographics.setFont(new java.awt.Font("Perpetua", 1, 36)); // NOI18N
+        lblPDemographics.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblPDemographics.setForeground(new java.awt.Color(0, 102, 102));
         lblPDemographics.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPDemographics.setText("Person Demographics");
+        lblPDemographics.setText("Enter Person Details");
 
+        lblPFirstName.setForeground(new java.awt.Color(0, 102, 102));
         lblPFirstName.setText("First Name");
 
+        lblPLastName.setForeground(new java.awt.Color(0, 102, 102));
         lblPLastName.setText("Last Name");
 
+        lblPPhoneNum.setForeground(new java.awt.Color(0, 102, 102));
         lblPPhoneNum.setText("Phone Number");
 
-        lblPHeight.setText("Height");
+        lblGender.setForeground(new java.awt.Color(0, 102, 102));
+        lblGender.setText("Gender");
 
+        lblPAge.setForeground(new java.awt.Color(0, 102, 102));
         lblPAge.setText("Age");
 
-        lblPWeight.setText("Weight");
+        lblEmail.setForeground(new java.awt.Color(0, 102, 102));
+        lblEmail.setText("Email");
 
-        lblPSsn.setText("Social security number");
+        lblPSsn.setForeground(new java.awt.Color(0, 102, 102));
+        lblPSsn.setText("SSN");
 
         txtPFirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,25 +191,14 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtPWeight.addActionListener(new java.awt.event.ActionListener() {
+        txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPWeightActionPerformed(evt);
+                txtEmailActionPerformed(evt);
             }
         });
-        txtPWeight.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPWeightKeyReleased(evt);
-            }
-        });
-
-        txtPHeight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPHeightActionPerformed(evt);
-            }
-        });
-        txtPHeight.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtPHeightKeyReleased(evt);
+                txtEmailKeyReleased(evt);
             }
         });
 
@@ -234,6 +234,7 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
 
         lblPDobErr.setForeground(new java.awt.Color(255, 0, 0));
 
+        lblPHouseName.setForeground(new java.awt.Color(0, 102, 102));
         lblPHouseName.setText("House Name");
 
         txtPHouseName.addActionListener(new java.awt.event.ActionListener() {
@@ -247,151 +248,160 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnUploadPersonPic.setText("Upload Picture");
-        btnUploadPersonPic.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUploadPersonPicActionPerformed(evt);
-            }
-        });
-
-        lblPersonPicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Female", "Male", "Others" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblPDemographics, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(25, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSavePerson)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPersonPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(10, 10, 10)
-                                .addComponent(btnUploadPersonPic)))
-                        .addGap(50, 50, 50)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblPAge, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblPHouseName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(lblPFirstName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblPLastName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblPPhoneNum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblPWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPSsn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(80, 80, 80)
+                            .addComponent(lblPAge, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblEmail)
+                            .addComponent(lblPSsn))
+                        .addGap(514, 514, 514)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbCommunity, 0, 137, Short.MAX_VALUE)
-                            .addComponent(cmbCity, 0, 137, Short.MAX_VALUE)
-                            .addComponent(txtPAge)
-                            .addComponent(txtPHeight)
-                            .addComponent(txtPWeight)
-                            .addComponent(txtPSsn)
-                            .addComponent(txtPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPFirstName)
-                            .addComponent(txtPLastName)
-                            .addComponent(txtPPhoneNum))))
-                .addGap(20, 20, 20)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(98, 98, 98)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblPAgeErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPHeightErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPWeightErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPSsnErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(120, 120, 120)
+                                .addComponent(lblPDobErr, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(238, 238, 238)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblPFirstNameErr, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                    .addComponent(lblPLastNameErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPPhoneNumErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(26, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblPPhoneNum)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtPPhoneNum))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(lblCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(lblCityName, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(cmbCity, 0, 137, Short.MAX_VALUE)
+                                            .addComponent(cmbCommunity, 0, 137, Short.MAX_VALUE)
+                                            .addComponent(txtPHouseName, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(lblPFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 68, Short.MAX_VALUE)
+                                            .addComponent(lblPLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addGap(43, 43, 43)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtPFirstName)
+                                            .addComponent(txtPLastName)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(111, 111, 111)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtEmail)
+                                    .addComponent(txtPSsn)
+                                    .addComponent(txtPAge, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(lblPFirstNameErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPLastNameErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPPhoneNumErr, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE)
-                        .addComponent(lblPAgeErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPHeightErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPWeightErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(lblPSsnErr, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(lblPDobErr, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnSavePerson)
+                            .addComponent(lblPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblPDemographics, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbCity, cmbCommunity, txtPAge, txtPFirstName, txtPHeight, txtPHouseName, txtPLastName, txtPPhoneNum, txtPSsn, txtPWeight});
-
-        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jLabel1, lblCityName, lblPAge, lblPFirstName, lblPHeight, lblPHouseName, lblPLastName, lblPPhoneNum, lblPSsn, lblPWeight});
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbCity, cmbCommunity, txtEmail, txtPFirstName, txtPHouseName, txtPLastName, txtPPhoneNum, txtPSsn});
 
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
+                .addGap(222, 222, 222)
+                .addComponent(lblPFirstNameErr)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblPLastNameErr)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(lblPPhoneNumErr)))
+                .addGap(23, 23, 23)
+                .addComponent(lblPDobErr)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPAgeErr)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblPHeightErr)
+                .addGap(33, 33, 33)
+                .addComponent(lblPWeightErr)
+                .addGap(17, 17, 17)
+                .addComponent(lblPSsnErr)
+                .addContainerGap(112, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(lblPDemographics)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCityName)
+                    .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblCommunity)
+                    .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblPersonPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUploadPersonPic))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblCityName))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(11, 11, 11)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPFirstNameErr))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblPLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblPLastNameErr))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblPPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(7, 7, 7)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(txtPPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(lblPPhoneNumErr))))
-                                .addGap(28, 28, 28))
-                            .addComponent(lblPDobErr))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPAge, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPAgeErr))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPHeightErr))
-                        .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtPWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPWeightErr))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPSsnErr)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtPSsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblPSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(28, 28, 28)
+                        .addComponent(lblPFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(txtPFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPPhoneNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPAge, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblPSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPSsn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSavePerson)
-                .addContainerGap())
+                .addGap(0, 108, Short.MAX_VALUE))
         );
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jLabel1, lblCityName, lblPAge, lblPFirstName, lblPHeight, lblPHouseName, lblPLastName, lblPPhoneNum, lblPSsn, lblPWeight});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lblCityName, lblCommunity, lblEmail, lblGender, lblPAge, lblPFirstName, lblPHouseName, lblPLastName, lblPPhoneNum, lblPSsn});
 
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cmbCity, cmbCommunity, txtPAge, txtPFirstName, txtPHeight, txtPHouseName, txtPLastName, txtPPhoneNum, txtPSsn, txtPWeight});
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {cmbCity, cmbCommunity, txtEmail, txtPAge, txtPFirstName, txtPHouseName, txtPLastName, txtPPhoneNum, txtPSsn});
 
     }// </editor-fold>//GEN-END:initComponents
 
@@ -401,9 +411,8 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         int phoneNum;
         int age;
         int socialSecNum;
-        double height;
-        double weight;
-        Date dob;
+        String Gender;
+        String Email;
         Person personDemographics = new Person();
         if (((City) cmbCity.getSelectedItem()) == null) {
             JOptionPane.showMessageDialog(this, "City not present", "Info", JOptionPane.WARNING_MESSAGE);
@@ -419,15 +428,10 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
                 age = Integer.parseInt(txtPAge.getText());
                 socialSecNum = Integer.parseInt(txtPSsn.getText().replace("-", ""));
 
-                height = Double.parseDouble(txtPHeight.getText());
-                weight = Double.parseDouble(txtPWeight.getText());
+                Gender = cmbGender.getSelectedItem().toString();
+                Email = txtEmail.getText();
                 //dob = txtPDob.getDate();
-                ImageIcon myIcon = (ImageIcon) lblPersonPicture.getIcon();
-                if(myIcon == null) {
-                    JOptionPane.showMessageDialog(this, "Please add person picture", "Info", JOptionPane.INFORMATION_MESSAGE);
-                return;
-                }
-                personDemographics.setPersonPicture((Image) myIcon.getImage());
+                
          
             
             if (!(txtPFirstName.getText().matches("^[a-zA-Z]*$"))) {
@@ -445,12 +449,8 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "Please enter valid Phone Number.", "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }*/
-            else if (!(txtPWeight.getText().matches("\\d{1,3}"))) {
+            else if (!(txtEmail.getText().matches("\\d{1,3}"))) {
                 JOptionPane.showMessageDialog(this, "Please enter valid weight.", "Info", JOptionPane.INFORMATION_MESSAGE);
-                return;
-            }
-            else if (!(txtPHeight.getText().matches("\\d{1,3}"))) {
-                JOptionPane.showMessageDialog(this, "Please enter valid Height.", "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
             else if (!(txtPSsn.getText().matches("^(?!666|000|9\\d{2})\\d{3}"
@@ -464,10 +464,11 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
             personDemographics.setFirstName(txtPFirstName.getText());
             personDemographics.setLastName(txtPLastName.getText());
             personDemographics.setPhoneNumber(phoneNum);
-            //personDemographics.setDob(dob);
+            personDemographics.setCity(cmbCity.getSelectedItem().toString());
+            personDemographics.setCommunity(cmbCommunity.getSelectedItem().toString());
             personDemographics.setAge(age);
-            personDemographics.setHeight(height);
-            personDemographics.setWeight(weight);
+            personDemographics.setGender(Gender);
+            personDemographics.setEmail(Email);
             personDemographics.setSocialSecurityNum(socialSecNum);
 
             House house = ((House) ((Community) cmbCommunity.getSelectedItem()).getEnteredHouse(txtPHouseName.getText()));
@@ -503,13 +504,7 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         if (!match.matches()) {
             //lblPFirstNameErr.setText("Incorrect firstname");
             txtPFirstName.setBackground(Color.red);
-            //            lblPLastNameErr.setText("Incorrect firstname");
-            //            lblPHeightErr.setText("Incorrect firstname");
-            //            lblPPhoneNumErr.setText("Incorrect firstname");
-            //            lblPWeightErr.setText("Incorrect firstname");
-            //            lblPDobErr.setText("Incorrect firstname");
-            //            lblPSsnErr.setText("Incorrect firstname");
-            //            lblPAgeErr.setText("Incorrect firstname");
+          
 
         } else {
             lblPFirstNameErr.setText(null);
@@ -563,29 +558,7 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
 
     private void txtPPhoneNumKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPPhoneNumKeyReleased
         // TODO add your handling code here:
-        //        String value = txtPPhoneNum.getText();
-        //        int length = value.length();
-        //        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || ((evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) || (evt.getKeyCode() == KeyEvent.VK_DELETE)) ) {
-        //            txtPPhoneNum.setEditable(true);
-        //            lblPPhoneNum.setText("");
-        //        } else {
-        //            txtPPhoneNum.setEditable(false);
-        ////            lblPPhoneNum.setText("Enter only numeric digits(0-9)");
-        //        }
-
-        //        String pattern = "^[0-9]{0,12}$";
-        //        Pattern patt = Pattern.compile(pattern);
-        //        if(evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || ((evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) || (evt.getKeyCode() == KeyEvent.VK_DELETE)) ) {
-        //            txtPPhoneNum.setEditable(true);
-        //        } else {
-        //            txtPPhoneNum.setEditable(false);
-        //        }
-        //        Matcher match = patt.matcher(txtPPhoneNum.getText());
-        //        if(!match.matches()) {
-        //            lblPPhoneNumErr.setText("Incorrect phone number");
-        //        } else {
-        //            lblPPhoneNumErr.setText(null);
-        //        }
+        
         String phonePattern = "\\d{0,12}";
         Pattern patt = Pattern.compile(phonePattern);
         if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || ((evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) || (evt.getKeyCode() == KeyEvent.VK_DELETE))) {
@@ -612,27 +585,23 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPPhoneNumActionPerformed
 
-    private void txtPWeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPWeightKeyReleased
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
         // TODO add your handling code here:
         String pattern = "^[-?\\d+(\\.\\d+)?]{0,30}$";
         Pattern patt = Pattern.compile(pattern);
-        Matcher match = patt.matcher(txtPWeight.getText());
+        Matcher match = patt.matcher(txtEmail.getText());
         if (!match.matches()) {
             //lblPWeightErr.setText("Incorrect weight format");
-            txtPWeight.setBackground(Color.red);
+            txtEmail.setBackground(Color.red);
         } else {
             lblPWeightErr.setText(null);
-            txtPWeight.setBackground(null);
+            txtEmail.setBackground(null);
         }
-    }//GEN-LAST:event_txtPWeightKeyReleased
+    }//GEN-LAST:event_txtEmailKeyReleased
 
-    private void txtPWeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPWeightActionPerformed
+    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtPWeightActionPerformed
-
-    private void txtPHeightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPHeightActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPHeightActionPerformed
+    }//GEN-LAST:event_txtEmailActionPerformed
 
     private void txtPSsnKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPSsnKeyReleased
         // TODO add your handling code here:
@@ -658,26 +627,6 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPHouseNameKeyReleased
 
-    private void btnUploadPersonPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadPersonPicActionPerformed
-        // TODO add your handling code here:
-        JFileChooser browseDriverLicenseFile = new JFileChooser();
-
-        //Filter image extensions
-        FileNameExtensionFilter fnef = new FileNameExtensionFilter("IMAGES", "png", "jpg", "jpeg");
-        browseDriverLicenseFile.addChoosableFileFilter(fnef);
-        int showOpenDialogue = browseDriverLicenseFile.showOpenDialog(null);
-        if (showOpenDialogue == JFileChooser.APPROVE_OPTION) {
-            File selectedImageFile = browseDriverLicenseFile.getSelectedFile();
-            String selectedImagePath = selectedImageFile.getAbsolutePath();
-
-            //Display image in JLable
-            ImageIcon Ii = new ImageIcon(selectedImagePath);
-            //Resize image to fit jlabel
-            Image image = Ii.getImage().getScaledInstance(lblPersonPicture.getWidth(), lblPersonPicture.getHeight(), Image.SCALE_SMOOTH);
-            lblPersonPicture.setIcon(new ImageIcon(image));
-        }
-    }//GEN-LAST:event_btnUploadPersonPicActionPerformed
-
     private void cmbCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCommunityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmbCommunityActionPerformed
@@ -686,35 +635,22 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPSsnActionPerformed
 
-    private void txtPHeightKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPHeightKeyReleased
-        // TODO add your handling code here:
-        String pattern = "^[-?\\d+(\\.\\d+)?]{0,30}$";
-        Pattern patt = Pattern.compile(pattern);
-        Matcher match = patt.matcher(txtPHeight.getText());
-        if (!match.matches()) {
-            //lblPWeightErr.setText("Incorrect weight format");
-            txtPHeight.setBackground(Color.red);
-        } else {
-            //txtPHeight.setText(null);
-            txtPHeight.setBackground(null);
-        }
-    }//GEN-LAST:event_txtPHeightKeyReleased
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSavePerson;
-    private javax.swing.JButton btnUploadPersonPic;
     private javax.swing.JComboBox cmbCity;
     private javax.swing.JComboBox cmbCommunity;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JLabel lblCityName;
+    private javax.swing.JLabel lblCommunity;
+    private javax.swing.JLabel lblEmail;
+    private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblPAge;
     private javax.swing.JLabel lblPAgeErr;
     private javax.swing.JLabel lblPDemographics;
     private javax.swing.JLabel lblPDobErr;
     private javax.swing.JLabel lblPFirstName;
     private javax.swing.JLabel lblPFirstNameErr;
-    private javax.swing.JLabel lblPHeight;
     private javax.swing.JLabel lblPHeightErr;
     private javax.swing.JLabel lblPHouseName;
     private javax.swing.JLabel lblPLastName;
@@ -723,17 +659,14 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel lblPPhoneNumErr;
     private javax.swing.JLabel lblPSsn;
     private javax.swing.JLabel lblPSsnErr;
-    private javax.swing.JLabel lblPWeight;
     private javax.swing.JLabel lblPWeightErr;
-    private javax.swing.JLabel lblPersonPicture;
+    private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtPAge;
     private javax.swing.JTextField txtPFirstName;
-    private javax.swing.JTextField txtPHeight;
     private javax.swing.JTextField txtPHouseName;
     private javax.swing.JTextField txtPLastName;
     private javax.swing.JTextField txtPPhoneNum;
     private javax.swing.JFormattedTextField txtPSsn;
-    private javax.swing.JTextField txtPWeight;
     // End of variables declaration//GEN-END:variables
 
     public void populateCityCombo() {
@@ -764,9 +697,7 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
             //return false;
         } else if (!validField(txtPAge, "Please enter the age")) {
             return false;
-        } else if (!validField(txtPHeight, "Please enter the height")) {
-            return false;
-        } else if (!validField(txtPWeight, "Please enter the weight")) {
+        } else if (!validField(txtEmail, "Please enter the weight")) {
             return false;
         } else if (txtPSsn.getText().replace("-", "").trim().length() == 0) {//(!validField( txtPSsn, "Please enter the Social security number")) {
             JOptionPane.showMessageDialog(this, "Please enter the Social security number");

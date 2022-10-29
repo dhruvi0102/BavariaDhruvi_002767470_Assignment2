@@ -2,14 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package ui.person;
+package ui;
 
+import Hospital.CityDirectory;
+import Hospital.PersonDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
-import Hospital.CityDirectory;
-import Hospital.PersonDirectory;
-import ui.LoginScreen;
+import ui.MainScreen;
+import ui.person.AddPersonInfoJPanel;
 
 /**
  *
@@ -52,6 +53,9 @@ public class PersonWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1.setDividerLocation(80);
 
+        menuBarJPanel.setBackground(new java.awt.Color(204, 204, 255));
+
+        btnAddPerson.setForeground(new java.awt.Color(0, 102, 102));
         btnAddPerson.setText("Add Person");
         btnAddPerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +63,7 @@ public class PersonWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,7 +71,8 @@ public class PersonWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnViewPeople.setText("View Details");
+        btnViewPeople.setForeground(new java.awt.Color(0, 102, 102));
+        btnViewPeople.setText("View Persons");
         btnViewPeople.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnViewPeopleActionPerformed(evt);
@@ -81,27 +87,25 @@ public class PersonWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBack)
-                    .addComponent(btnAddPerson))
+                    .addComponent(btnViewPeople, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAddPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarJPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnViewPeople)
-                .addGap(167, 167, 167))
         );
         menuBarJPanelLayout.setVerticalGroup(
             menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarJPanelLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(32, 32, 32)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddPerson)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnViewPeople)
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(263, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setTopComponent(menuBarJPanel);
+        jSplitPane1.setLeftComponent(menuBarJPanel);
 
+        workAreaJPanel.setBackground(new java.awt.Color(204, 204, 255));
         workAreaJPanel.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(workAreaJPanel);
 
@@ -109,7 +113,7 @@ public class PersonWorkAreaJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 457, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 662, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -127,17 +131,12 @@ public class PersonWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnAddPersonActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        //        LoginScreen loginScreen = new LoginScreen(mainWorkArea, cityDirectory);
-        //        mainWorkArea.add("LoginScreen", loginScreen);
-        //        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        //        layout.next(mainWorkArea);
 
         mainWorkArea.remove(this);
 
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        LoginScreen loginPanel = (LoginScreen) component;
+        MainScreen loginPanel = (MainScreen) component;
         //        loginPanel.populateSupplierCombo();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
@@ -146,7 +145,7 @@ public class PersonWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnViewPeopleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewPeopleActionPerformed
         // TODO add your handling code here:
-        PeopleTableJPanel ptjp = new PeopleTableJPanel(workAreaJPanel, cityDirectory);
+        PeopleTableJPanel ptjp = new PeopleTableJPanel(workAreaJPanel, cityDirectory, personDirectory);
         workAreaJPanel.add("PeopleTableJPanel", ptjp);
         CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
         layout.next(workAreaJPanel);

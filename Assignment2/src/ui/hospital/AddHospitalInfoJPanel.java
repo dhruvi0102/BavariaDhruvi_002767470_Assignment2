@@ -30,7 +30,6 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.cityDirectory = cityDirectory;
-        //populateCityCombo();
     }
 
 
@@ -45,44 +44,42 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
 
         lblSelectCity = new javax.swing.JLabel();
         lblSelectCommunity = new javax.swing.JLabel();
-        cmbSelectCommunity = new javax.swing.JComboBox<>();
+        cmbCommunity = new javax.swing.JComboBox<>();
         lblHospitalName = new javax.swing.JLabel();
         txtHospitalName = new javax.swing.JTextField();
-        lblPincode = new javax.swing.JLabel();
-        txtPincode = new javax.swing.JTextField();
         lblHospitalAdd = new javax.swing.JLabel();
-        txtHospitalAddress = new javax.swing.JTextField();
         lblCreateHospital = new javax.swing.JLabel();
         btnSaveHospital = new javax.swing.JButton();
-        cmbSelectCityy = new javax.swing.JComboBox<>();
+        cmbCity = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        lblSelectCity.setForeground(new java.awt.Color(0, 102, 102));
         lblSelectCity.setText("Select City:");
 
+        lblSelectCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblSelectCommunity.setText("Select Community:");
 
-        cmbSelectCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbSelectCommunity.setSelectedIndex(-1);
+        cmbCommunity.setSelectedIndex(-1);
 
+        lblHospitalName.setForeground(new java.awt.Color(0, 102, 102));
         lblHospitalName.setText("Hospital Name:");
 
-        lblPincode.setText("Pincode:");
+        lblCreateHospital.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblCreateHospital.setForeground(new java.awt.Color(0, 102, 102));
+        lblCreateHospital.setText("Add Hospital Details");
 
-        lblHospitalAdd.setText("Hospital Address:");
-
-        lblCreateHospital.setText("CREATE HOSPITAL DETAILS");
-
-        btnSaveHospital.setText("SAVE");
+        btnSaveHospital.setText("Save");
         btnSaveHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveHospitalActionPerformed(evt);
             }
         });
 
-        cmbSelectCityy.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbSelectCityy.setSelectedIndex(-1);
-        cmbSelectCityy.addActionListener(new java.awt.event.ActionListener() {
+        cmbCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "Virginia" }));
+        cmbCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbSelectCityyActionPerformed(evt);
+                cmbCityActionPerformed(evt);
             }
         });
 
@@ -91,136 +88,121 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblCreateHospital)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(lblSelectCity)
-                                .addComponent(lblHospitalName)
-                                .addComponent(lblPincode)
-                                .addComponent(lblHospitalAdd))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblSelectCommunity)
-                                .addGap(15, 15, 15)))
-                        .addGap(32, 32, 32)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmbSelectCommunity, 0, 280, Short.MAX_VALUE)
-                            .addComponent(txtHospitalName)
-                            .addComponent(txtPincode)
-                            .addComponent(txtHospitalAddress)
-                            .addComponent(cmbSelectCityy, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(lblSelectCity)
+                        .addGap(52, 52, 52)
+                        .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(291, 291, 291)
-                        .addComponent(lblCreateHospital))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(314, 314, 314)
-                        .addComponent(btnSaveHospital)))
-                .addContainerGap(235, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblSelectCommunity)
+                            .addComponent(lblHospitalName))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblHospitalAdd)
+                    .addComponent(btnSaveHospital))
+                .addContainerGap(349, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(24, 24, 24)
                 .addComponent(lblCreateHospital)
-                .addGap(44, 44, 44)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSelectCity)
-                    .addComponent(cmbSelectCityy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
+                    .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSelectCommunity)
-                    .addComponent(cmbSelectCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
                     .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHospitalAdd)
-                    .addComponent(txtHospitalAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPincode)
-                    .addComponent(txtPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSaveHospital)
-                .addGap(80, 80, 80))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblHospitalAdd)
+                .addContainerGap(363, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSaveHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveHospitalActionPerformed
         // TODO add your handling code here:
         
-        int pincode;
         Hospital hospitalDemographics= new Hospital();
-        if(((City) cmbSelectCityy.getSelectedItem())==null){
+        if(((City) cmbCity.getSelectedItem())==null){
            JOptionPane.showMessageDialog(this, "City not present", "Info", JOptionPane.WARNING_MESSAGE);
             return; 
         }
-        if(((Community) cmbSelectCommunity.getSelectedItem())==null){
+        if(((Community) cmbCommunity.getSelectedItem())==null){
            JOptionPane.showMessageDialog(this, "Community not present int he city", "Info", JOptionPane.WARNING_MESSAGE);
             return; 
             
         }
         
-        if (ValidFields()) {
-            
-         try{
-            pincode= Integer.parseInt(txtPincode.getText());
-            }
-         catch(NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Please check the pincode data", "Info", JOptionPane.INFORMATION_MESSAGE);
-                return;
-         }
+        if (ValidFields()) {        
          if (!(txtHospitalName.getText().matches("^[a-zA-Z]*$"))) {
                 JOptionPane.showMessageDialog(this, "Please enter valid Hospital name. Hospital Name can only contain alphabets", "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
                 
         }
          hospitalDemographics.setHospital_Name(txtHospitalName.getText());
-         hospitalDemographics.setPincode(pincode);
-         hospitalDemographics.setAddress(txtHospitalAddress.getText());
-         hospitalDemographics.setCity(cmbSelectCityy.getSelectedItem().toString());
-         hospitalDemographics.setCommunity(cmbSelectCommunity.getSelectedItem().toString());
+         hospitalDemographics.setCity(cmbCity.getSelectedItem().toString());
+         hospitalDemographics.setCommunity(cmbCommunity.getSelectedItem().toString());
          JOptionPane.showMessageDialog(this, "Hospital demographics added");
         }
     }//GEN-LAST:event_btnSaveHospitalActionPerformed
 
-    private void cmbSelectCityyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSelectCityyActionPerformed
+    private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
         // TODO add your handling code here:
-        populateCommunityCombo();
-    }//GEN-LAST:event_cmbSelectCityyActionPerformed
+        if(cmbCity.getSelectedItem().equals("Boston")){
+            cmbCommunity.removeAllItems();
+            cmbCommunity.addItem("Bolyston Street");
+            cmbCommunity.addItem("Park Drive");
+            cmbCommunity.setSelectedItem(null);
+            
+        }
+        else if(cmbCity.getSelectedItem().equals("Virginia")){
+            cmbCommunity.removeAllItems();
+            cmbCommunity.addItem("Richmond");
+            cmbCommunity.addItem("Alexandria");
+            cmbCommunity.setSelectedItem(null);
+        }
+        
+    }//GEN-LAST:event_cmbCityActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveHospital;
-    private javax.swing.JComboBox<String> cmbSelectCityy;
-    private javax.swing.JComboBox<String> cmbSelectCommunity;
+    private javax.swing.JComboBox<String> cmbCity;
+    private javax.swing.JComboBox<String> cmbCommunity;
     private javax.swing.JLabel lblCreateHospital;
     private javax.swing.JLabel lblHospitalAdd;
     private javax.swing.JLabel lblHospitalName;
-    private javax.swing.JLabel lblPincode;
     private javax.swing.JLabel lblSelectCity;
     private javax.swing.JLabel lblSelectCommunity;
-    private javax.swing.JTextField txtHospitalAddress;
     private javax.swing.JTextField txtHospitalName;
-    private javax.swing.JTextField txtPincode;
     // End of variables declaration//GEN-END:variables
 
     private void populateCityCombo() {
         
-        cmbSelectCityy.removeAllItems();
+        cmbCity.removeAllItems();
         for(City c: cityDirectory.getCities()){
-            cmbSelectCityy.addItem(c.toString());
+            cmbCity.addItem(c.toString());
         }
     }
     
     private void populateCommunityCombo() {
-        cmbSelectCommunity.removeAllItems();
-        if (cmbSelectCityy.getSelectedItem() != null) {
-            for (Community s : ((City) cmbSelectCityy.getSelectedItem()).getCityData().getCommunities()) {
-                cmbSelectCommunity.addItem(s.toString());
+        cmbCommunity.removeAllItems();
+        if (cmbCity.getSelectedItem() != null) {
+            for (Community s : ((City) cmbCity.getSelectedItem()).getCityData().getCommunities()) {
+                cmbCommunity.addItem(s.toString());
             }
         }
     }
@@ -229,13 +211,7 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         if(!validField(txtHospitalName,"Please Enter Hospital Name")){
             return false;
            
-        }
-        else if(!validField(txtHospitalAddress,"Please Enter Hospital Address")){
-            return false;
-        }
-        else if(!validField(txtPincode,"Please Enter Pincode")){
-            return false;
-        }
+        }       
         return true;
     }
 

@@ -52,34 +52,30 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
         btnViewHospital = new javax.swing.JButton();
         btnUpdateHospital = new javax.swing.JButton();
         btnDeleteHospital = new javax.swing.JButton();
-        lblSearch = new javax.swing.JLabel();
-        txtSearchHospital = new javax.swing.JTextField();
         lblHospitalName = new javax.swing.JLabel();
-        lblHospitalAddress = new javax.swing.JLabel();
         lblCity = new javax.swing.JLabel();
         lblCommunity = new javax.swing.JLabel();
-        lblPincode = new javax.swing.JLabel();
         txtHospitalName = new javax.swing.JTextField();
-        txtHospitalAddress = new javax.swing.JTextField();
         txtCity = new javax.swing.JTextField();
         txtCommunity = new javax.swing.JTextField();
-        txtPincode = new javax.swing.JTextField();
 
         jTextField2.setText("jTextField1");
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Hospital Name", "Hospital Address", "City", "Community", "Pincode"
+                "Hospital Name", "Community", "City"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, false, false
+                false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -88,6 +84,7 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTable1);
 
+        btnViewHospital.setForeground(new java.awt.Color(0, 102, 102));
         btnViewHospital.setText("View");
         btnViewHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +92,7 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdateHospital.setForeground(new java.awt.Color(0, 102, 102));
         btnUpdateHospital.setText("Update");
         btnUpdateHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +100,7 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDeleteHospital.setForeground(new java.awt.Color(0, 102, 102));
         btnDeleteHospital.setText("Delete");
         btnDeleteHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -109,95 +108,67 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblSearch.setText("Search");
-
-        txtSearchHospital.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtSearchHospitalKeyReleased(evt);
-            }
-        });
-
+        lblHospitalName.setForeground(new java.awt.Color(0, 102, 102));
         lblHospitalName.setText("Hospital Name:");
 
-        lblHospitalAddress.setText("Hospital Address:");
-
+        lblCity.setForeground(new java.awt.Color(0, 102, 102));
         lblCity.setText("City:");
 
+        lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblCommunity.setText("Community:");
-
-        lblPincode.setText("Pincode:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(lblSearch)
-                .addGap(27, 27, 27)
-                .addComponent(txtSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnViewHospital)
-                .addGap(40, 40, 40)
-                .addComponent(btnUpdateHospital)
-                .addGap(54, 54, 54)
-                .addComponent(btnDeleteHospital)
-                .addGap(55, 55, 55))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 757, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addContainerGap()
+                        .addComponent(btnViewHospital)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUpdateHospital)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDeleteHospital))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCity)
                             .addComponent(lblHospitalName)
-                            .addComponent(lblHospitalAddress))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtHospitalAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
-                            .addComponent(txtHospitalName)
-                            .addComponent(txtCity))
-                        .addGap(130, 130, 130)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCommunity)
-                            .addComponent(lblPincode))
+                            .addComponent(lblCity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCommunity, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
-                            .addComponent(txtPincode))))
-                .addContainerGap(27, Short.MAX_VALUE))
+                            .addComponent(txtCity, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(txtHospitalName, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                            .addComponent(txtCommunity))))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnViewHospital)
                     .addComponent(btnUpdateHospital)
-                    .addComponent(btnDeleteHospital)
-                    .addComponent(lblSearch)
-                    .addComponent(txtSearchHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                    .addComponent(btnDeleteHospital))
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHospitalName)
+                    .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCommunity)
-                    .addComponent(txtHospitalName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblHospitalAddress)
-                    .addComponent(lblPincode)
-                    .addComponent(txtPincode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtHospitalAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCity)
                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(68, Short.MAX_VALUE))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -213,8 +184,6 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
             //set the data in textfields on clicking view button:
             
             txtHospitalName.setText(hospitalInfo.getHospital_Name());
-            txtPincode.setText(String.valueOf(hospitalInfo.getPincode()));
-            txtHospitalAddress.setText(hospitalInfo.getAddress());
             txtCity.setText(hospitalInfo.getCity());
             txtCommunity.setText(hospitalInfo.getCommunity());
     
@@ -233,19 +202,12 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
             DefaultTableModel model= (DefaultTableModel)jTable1.getModel();
             
             String HospitalName= txtHospitalName.getText();
-            String Address= txtHospitalAddress.getText();
-            String City= txtCity.getText();
             String Community= txtCommunity.getText();
-            int Pincode= Integer.parseInt(txtPincode.getText());
-            
-            //set updated value on table row
-            
+            String City= txtCity.getText();
+
             model.setValueAt(HospitalName, jTable1.getSelectedRow(),0);
-            model.setValueAt(Address, jTable1.getSelectedRow(), 1);
             model.setValueAt(City,jTable1.getSelectedRow(), 2);
-            model.setValueAt(Community,jTable1.getSelectedRow(),3);
-            model.setValueAt(Pincode, jTable1.getSelectedRow(),4);
-           
+            model.setValueAt(Community,jTable1.getSelectedRow(),1);
             // After successfully setting, display the data:
             JOptionPane.showMessageDialog(null,"Update Successful!");
  
@@ -275,19 +237,10 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
             populateTable();  
             //removing data textfield values from the display bars:
                 txtHospitalName.setText("");
-                txtHospitalAddress.setText("");
                 txtCity.setText("");
                 txtCommunity.setText("");
-                txtPincode.setText("");
         }
     }//GEN-LAST:event_btnDeleteHospitalActionPerformed
-
-    private void txtSearchHospitalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSearchHospitalKeyReleased
-        // TODO add your handling code here:
-        
-        String l= txtSearchHospital.getText();
-        filter(l);
-    }//GEN-LAST:event_txtSearchHospitalKeyReleased
 
     private void filter(String l){
         DefaultTableModel model= (DefaultTableModel)jTable1.getModel();
@@ -306,16 +259,10 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCommunity;
-    private javax.swing.JLabel lblHospitalAddress;
     private javax.swing.JLabel lblHospitalName;
-    private javax.swing.JLabel lblPincode;
-    private javax.swing.JLabel lblSearch;
     private javax.swing.JTextField txtCity;
     private javax.swing.JTextField txtCommunity;
-    private javax.swing.JTextField txtHospitalAddress;
     private javax.swing.JTextField txtHospitalName;
-    private javax.swing.JTextField txtPincode;
-    private javax.swing.JTextField txtSearchHospital;
     // End of variables declaration//GEN-END:variables
 
     private void populateTable() {

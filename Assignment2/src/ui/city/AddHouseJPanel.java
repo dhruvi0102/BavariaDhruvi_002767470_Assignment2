@@ -23,11 +23,8 @@ public class AddHouseJPanel extends javax.swing.JPanel {
      */
     JPanel workAreaJPanel;
     CityDirectory cityDirectory;
-//    public AddHouseJPanel() {
-//        initComponents();
-//    }
-
-    AddHouseJPanel(JPanel workAreaJPanel, CityDirectory cityDirectory) {
+    
+    public AddHouseJPanel(JPanel workAreaJPanel, CityDirectory cityDirectory) {
         initComponents();
         this.workAreaJPanel = workAreaJPanel;
         this.cityDirectory = cityDirectory;
@@ -46,12 +43,15 @@ public class AddHouseJPanel extends javax.swing.JPanel {
         txtHouseName = new javax.swing.JTextField();
         btnSaveHouse = new javax.swing.JButton();
         cmbCity = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
+        lblHouse = new javax.swing.JLabel();
         lblTitle = new javax.swing.JLabel();
         lblCityName = new javax.swing.JLabel();
         cmbCommunity = new javax.swing.JComboBox();
         lblCityName1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        btnSaveHouse.setForeground(new java.awt.Color(0, 102, 102));
         btnSaveHouse.setText("Save");
         btnSaveHouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -65,12 +65,15 @@ public class AddHouseJPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setText("House Name");
+        lblHouse.setForeground(new java.awt.Color(0, 102, 102));
+        lblHouse.setText("House Name");
 
-        lblTitle.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
+        lblTitle.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblTitle.setForeground(new java.awt.Color(0, 102, 102));
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Add new House");
 
+        lblCityName.setForeground(new java.awt.Color(0, 102, 102));
         lblCityName.setText("Select City");
 
         cmbCommunity.addActionListener(new java.awt.event.ActionListener() {
@@ -79,30 +82,32 @@ public class AddHouseJPanel extends javax.swing.JPanel {
             }
         });
 
+        lblCityName1.setForeground(new java.awt.Color(0, 102, 102));
         lblCityName1.setText("Select Community");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnSaveHouse))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(lblCityName)
-                            .addComponent(lblCityName1)
-                            .addComponent(jLabel1))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lblCityName1)
+                                .addComponent(lblHouse))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(btnSaveHouse)
+                    .addComponent(lblTitle))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {cmbCity, cmbCommunity, txtHouseName});
@@ -110,23 +115,23 @@ public class AddHouseJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(17, 17, 17)
                 .addComponent(lblTitle)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCityName)
                     .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblCityName1)
                     .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(8, 8, 8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(30, 30, 30)
+                    .addComponent(lblHouse)
+                    .addComponent(txtHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSaveHouse)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,11 +143,6 @@ public class AddHouseJPanel extends javax.swing.JPanel {
             return;
         }
         try {
-            //                Feature newFeature = product.addNewFeature();
-            //        newFeature.setName("New feature");
-            //        newFeature.setValue("Type value here");
-            //
-            //        saveFeatures();
             House house = new House();
             house.setHouseName(txtHouseName.getText());
             house = ((Community) cmbCommunity.getSelectedItem()).addHouse(house);
@@ -172,9 +172,9 @@ public class AddHouseJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSaveHouse;
     private javax.swing.JComboBox cmbCity;
     private javax.swing.JComboBox cmbCommunity;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCityName;
     private javax.swing.JLabel lblCityName1;
+    private javax.swing.JLabel lblHouse;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JTextField txtHouseName;
     // End of variables declaration//GEN-END:variables
@@ -194,7 +194,7 @@ public class AddHouseJPanel extends javax.swing.JPanel {
             }
         }
     }
-        private boolean ValidFields() {
+    private boolean ValidFields() {
         if (!validField(txtHouseName, "Please enter the house name")) {
             return false;
         }

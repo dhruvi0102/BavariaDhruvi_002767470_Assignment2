@@ -55,7 +55,6 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         lblSpeciality = new javax.swing.JLabel();
-        lblPatientPicture = new javax.swing.JLabel();
         btnSearchPatient = new javax.swing.JButton();
         txtSsn = new javax.swing.JTextField();
         lblSsn = new javax.swing.JLabel();
@@ -64,24 +63,25 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
         lblLastName = new javax.swing.JLabel();
         lblDateErr = new javax.swing.JLabel();
         txtLastName = new javax.swing.JTextField();
-        txt_Hospital = new javax.swing.JTextField();
         txtFirstName = new javax.swing.JTextField();
         lblFirstName = new javax.swing.JLabel();
         lblHospital = new javax.swing.JLabel();
-        lblPatientAge = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         txtAge = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         cmbCommunity = new javax.swing.JComboBox<>();
         lblCity = new javax.swing.JLabel();
         cmbCity = new javax.swing.JComboBox<>();
+        cmbHospital = new javax.swing.JComboBox<>();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+        setForeground(new java.awt.Color(0, 102, 102));
+
+        lblSpeciality.setForeground(new java.awt.Color(0, 102, 102));
         lblSpeciality.setText("Speciality");
 
-        lblPatientPicture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblPatientPicture.setText("Patient picture");
-        lblPatientPicture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
+        btnSearchPatient.setForeground(new java.awt.Color(0, 102, 102));
         btnSearchPatient.setText("Search Doctor");
         btnSearchPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,72 +89,31 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtSsn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSsnActionPerformed(evt);
-            }
-        });
+        lblSsn.setForeground(new java.awt.Color(0, 102, 102));
+        lblSsn.setText("SSN");
 
-        lblSsn.setText("Enter SSN");
-
-        txt_Speciality.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_SpecialityActionPerformed(evt);
-            }
-        });
-        txt_Speciality.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_SpecialityKeyReleased(evt);
-            }
-        });
-
+        lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblCommunity.setText("Community");
 
+        lblLastName.setForeground(new java.awt.Color(0, 102, 102));
         lblLastName.setText("Last Name");
 
         lblDateErr.setForeground(new java.awt.Color(255, 0, 0));
 
         txtLastName.setEnabled(false);
-        txtLastName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtLastNameActionPerformed(evt);
-            }
-        });
-        txtLastName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtLastNameKeyReleased(evt);
-            }
-        });
-
-        txt_Hospital.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_HospitalActionPerformed(evt);
-            }
-        });
-        txt_Hospital.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txt_HospitalKeyReleased(evt);
-            }
-        });
 
         txtFirstName.setEnabled(false);
-        txtFirstName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFirstNameActionPerformed(evt);
-            }
-        });
-        txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtFirstNameKeyReleased(evt);
-            }
-        });
 
+        lblFirstName.setForeground(new java.awt.Color(0, 102, 102));
         lblFirstName.setText("First Name");
 
+        lblHospital.setForeground(new java.awt.Color(0, 102, 102));
         lblHospital.setText("Hospital");
 
-        lblPatientAge.setText("Age");
+        lblAge.setForeground(new java.awt.Color(0, 102, 102));
+        lblAge.setText("Age");
 
+        btnSave.setForeground(new java.awt.Color(0, 102, 102));
         btnSave.setText("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,35 +122,22 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
         });
 
         txtAge.setEnabled(false);
-        txtAge.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAgeActionPerformed(evt);
-            }
-        });
-        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtAgeKeyReleased(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("Add Doctor Details");
 
-        cmbCommunity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boylston" }));
-        cmbCommunity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCommunityActionPerformed(evt);
-            }
-        });
-
+        lblCity.setForeground(new java.awt.Color(0, 102, 102));
         lblCity.setText("City");
 
-        cmbCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", " " }));
+        cmbCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "Virginia", " " }));
         cmbCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCityActionPerformed(evt);
             }
         });
+
+        cmbHospital.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "America Cancer Hospital", "Harvard Hospital", " " }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -210,7 +156,7 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                             .addComponent(lblLastName)
                             .addComponent(lblSpeciality)
                             .addComponent(lblHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPatientAge))
+                            .addComponent(lblAge))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -222,14 +168,12 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                                         .addComponent(btnSearchPatient))
                                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addContainerGap(347, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txt_Hospital, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                                    .addComponent(txt_Speciality, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE))
-                                .addGap(64, 64, 64)
-                                .addComponent(lblPatientPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 207, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txt_Speciality, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                                    .addComponent(cmbHospital, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -264,24 +208,21 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(txtFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblLastName)
-                            .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblPatientAge))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblSpeciality)
-                            .addComponent(txt_Speciality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblHospital)
-                            .addComponent(txt_Hospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(lblPatientPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblLastName)
+                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblAge))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSpeciality)
+                    .addComponent(txt_Speciality, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblHospital)
+                    .addComponent(cmbHospital, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCity)
                     .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -291,12 +232,12 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                     .addComponent(cmbCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnSave)
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(256, 256, 256)
                     .addComponent(lblDateErr, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(144, Short.MAX_VALUE)))
+                    .addContainerGap(142, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -315,17 +256,14 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                     doctorInfo.setSocialSecurityNum(person.getSocialSecurityNum());
                     doctorInfo.setFirstName(person.getFirstName());
                     doctorInfo.setLastName(person.getLastName());
-                    doctorInfo.setAddress(person.getAddress());
-                    doctorInfo.setDob(person.getDob());
+                    doctorInfo.setGender(person.getGender());
                     doctorInfo.setAge(person.getAge());
-                    doctorInfo.setAddress(person.getAddress());
+                    doctorInfo.setEmail(person.getEmail());
                     doctorInfo.setPersonPicture(person.getPersonPicture());
                     txtFirstName.setText(doctorInfo.getFirstName());
                     txtLastName.setText(doctorInfo.getLastName());
                     //txtPatientDob.setText(dateFormat.format(patientInfo.getDob()));
                     txtAge.setText(String.valueOf(doctorInfo.getAge()));
-                    lblPatientPicture.setIcon(new ImageIcon(doctorInfo.getPersonPicture()));
-
                     DoctorDirectory.addDoctor(doctorInfo);
                     return;
                 }
@@ -339,48 +277,9 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
             txtLastName.setText(doctorInfo.getLastName());
             //txtPatientDob.setText(dateFormat.format(patientInfo.getDob()));
             txtAge.setText(String.valueOf(doctorInfo.getAge()));
-            lblPatientPicture.setIcon(new ImageIcon(doctorInfo.getPersonPicture()));
         }
               
     }//GEN-LAST:event_btnSearchPatientActionPerformed
-
-    private void txtSsnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSsnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSsnActionPerformed
-
-    private void txt_SpecialityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SpecialityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_SpecialityActionPerformed
-
-    private void txt_SpecialityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SpecialityKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txt_SpecialityKeyReleased
-
-    private void txtLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameActionPerformed
-
-    private void txtLastNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLastNameKeyReleased
-
-    private void txt_HospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_HospitalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_HospitalActionPerformed
-
-    private void txt_HospitalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_HospitalKeyReleased
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_txt_HospitalKeyReleased
-
-    private void txtFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFirstNameActionPerformed
-
-    private void txtFirstNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFirstNameKeyReleased
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
@@ -389,7 +288,7 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
        String LastName = txtLastName.getText();
        int Age = Integer.parseInt(txtAge.getText());
        String speciality = txt_Speciality.getText();
-       String Hospital = txt_Hospital.getText();
+       String Hospital = cmbHospital.getSelectedItem().toString();
        String City = cmbCity.getSelectedItem().toString();
        String Community = cmbCommunity.getSelectedItem().toString();
        
@@ -408,21 +307,23 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
        
     }//GEN-LAST:event_btnSaveActionPerformed
 
-    private void txtAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAgeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgeActionPerformed
-
-    private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtAgeKeyReleased
-
-    private void cmbCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCommunityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCommunityActionPerformed
-
     private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
         // TODO add your handling code here:
-        populateCityCombo();
+         
+        if(cmbCity.getSelectedItem().equals("Boston")){
+            cmbCommunity.removeAllItems();
+            cmbCommunity.addItem("Bolyston Street");
+            cmbCommunity.addItem("Park Drive");
+            cmbCommunity.setSelectedItem(null);
+            
+        }
+        else if(cmbCity.getSelectedItem().equals("Virginia")){
+            cmbCommunity.removeAllItems();
+            cmbCommunity.addItem("Richmond");
+            cmbCommunity.addItem("Alexandria");
+            cmbCommunity.setSelectedItem(null);
+        }
+
     }//GEN-LAST:event_cmbCityActionPerformed
 
 
@@ -431,22 +332,21 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnSearchPatient;
     private javax.swing.JComboBox<String> cmbCity;
     private javax.swing.JComboBox<String> cmbCommunity;
+    private javax.swing.JComboBox<String> cmbHospital;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblDateErr;
     private javax.swing.JLabel lblFirstName;
     private javax.swing.JLabel lblHospital;
     private javax.swing.JLabel lblLastName;
-    private javax.swing.JLabel lblPatientAge;
-    private javax.swing.JLabel lblPatientPicture;
     private javax.swing.JLabel lblSpeciality;
     private javax.swing.JLabel lblSsn;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtFirstName;
     private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtSsn;
-    private javax.swing.JTextField txt_Hospital;
     private javax.swing.JTextField txt_Speciality;
     // End of variables declaration//GEN-END:variables
  
@@ -454,18 +354,9 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
     
     private void populateCityCombo() {
         
-        String[] s = (String[]) cityDirectory.getCities().toArray();
-        DefaultComboBoxModel dm = new DefaultComboBoxModel(s);
-        cmbCity.setModel(dm);
-    }
-    
-    private void populateCommunityCombo() {
-       /*cmbCommunity.removeAllItems();
-        if (cmbCity.getSelectedItem() != null) {
-            for (Community s : ((City) cmbCity.getSelectedItem()).getCityData().getCommunities()) {
-                cmbCommunity.addItem(s);
-            }
-        }*/
+       String[] s= (String[]) cityDirectory.getCities().toArray();
+       DefaultComboBoxModel dm= new DefaultComboBoxModel(s);
+       cmbCity.setModel(dm);
     }
 
 }

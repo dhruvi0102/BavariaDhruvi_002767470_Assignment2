@@ -25,11 +25,7 @@ public class CityTableWorkAreaJPanel extends javax.swing.JPanel {
     JPanel workAreaJPanel;
     CityDirectory cityDirectory;
     
-//    public CityTableWorkAreaJPanel() {
-//        initComponents();
-//    }
-
-    CityTableWorkAreaJPanel(JPanel workAreaJPanel, CityDirectory cityDirectory) {
+    public CityTableWorkAreaJPanel(JPanel workAreaJPanel, CityDirectory cityDirectory) {
         initComponents();
         this.workAreaJPanel = workAreaJPanel;
         this.cityDirectory = cityDirectory;
@@ -51,11 +47,14 @@ public class CityTableWorkAreaJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblCommunityList = new javax.swing.JTable();
         cmbCity = new javax.swing.JComboBox();
-        btnAddCommunity = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("Select city");
 
+        tblCommunityList.setForeground(new java.awt.Color(0, 102, 102));
         tblCommunityList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -75,14 +74,8 @@ public class CityTableWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnAddCommunity.setText("Add Community");
-        btnAddCommunity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddCommunityActionPerformed(evt);
-            }
-        });
-
-        jLabel2.setFont(new java.awt.Font("Perpetua", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("City details");
 
@@ -95,44 +88,30 @@ public class CityTableWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(50, 50, 50)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddCommunity)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel2)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cmbCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnAddCommunity)
-                .addContainerGap(123, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnAddCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCommunityActionPerformed
-        // TODO add your handling code here:
-        if (this.cityDirectory.getCities().size() <= 0) {
-            JOptionPane.showMessageDialog(this, "Please add city first", "Info", JOptionPane.WARNING_MESSAGE);
-            return;
-        }
-        AddCommunityJPanel acjp = new AddCommunityJPanel(workAreaJPanel, cityDirectory);
-        workAreaJPanel.add("AddCityJPanel", acjp);
-        CardLayout layout = (CardLayout) workAreaJPanel.getLayout();
-        layout.next(workAreaJPanel);
-    }//GEN-LAST:event_btnAddCommunityActionPerformed
 
     private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
         // TODO add your handling code here:
@@ -141,7 +120,6 @@ public class CityTableWorkAreaJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddCommunity;
     private javax.swing.JComboBox cmbCity;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

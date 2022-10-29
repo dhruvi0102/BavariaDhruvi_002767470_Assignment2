@@ -25,8 +25,8 @@ public class MainJFrame extends javax.swing.JFrame {
     PatientDirectory patientDirectory;
     DoctorDirectory doctorDirectory;
     HospitalDirectory hospital_details;
+    
     public MainJFrame() {
-        
         initComponents();
         cityDirectory = new CityDirectory();
         personDirectory = new PersonDirectory();
@@ -50,6 +50,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        mainWorkArea.setBackground(new java.awt.Color(204, 204, 255));
         mainWorkArea.setLayout(new java.awt.CardLayout());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -106,7 +107,7 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLoginScreen() {
-        LoginScreen ls = new LoginScreen(mainWorkArea, cityDirectory, personDirectory, patientDirectory,doctorDirectory,hospital_details);
+        MainScreen ls = new MainScreen(mainWorkArea, cityDirectory, personDirectory, patientDirectory,doctorDirectory,hospital_details);
         mainWorkArea.add("LoginScreen",ls);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);

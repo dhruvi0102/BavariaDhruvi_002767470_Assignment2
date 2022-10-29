@@ -17,13 +17,28 @@ public class Person {
     private String firstName;
     private String lastName;
     private int phoneNumber;
-    private Date dob;
+    private String email;
     private int age;
-    private double height;
-    private double weight;
+    private String Gender;
     private int socialSecurityNum;
-    private String community;
-    private String address;
+    private String Community;
+
+    public String getCommunity() {
+        return Community;
+    }
+
+    public void setCommunity(String Community) {
+        this.Community = Community;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String City) {
+        this.City = City;
+    }
+    private String City;
     private Image personPicture;
 
     public Person() {
@@ -53,13 +68,22 @@ public class Person {
         this.phoneNumber = phoneNumber;
     }
 
-    public Date getDob() {
-        return dob;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDob(Date dob) {
-        this.dob = dob;
+    public void setEmail(String email) {
+        this.email = email;
     }
+
+    public String getGender() {
+        return Gender;
+    }
+
+    public void setGender(String Gender) {
+        this.Gender = Gender;
+    }
+   
 
     public int getAge() {
         return age;
@@ -69,22 +93,7 @@ public class Person {
         this.age = age;
     }
 
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
-
+    
     public int getSocialSecurityNum() {
         return socialSecurityNum;
     }
@@ -93,27 +102,16 @@ public class Person {
         this.socialSecurityNum = socialSecurityNum;
     }
 
-    public String getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(String community) {
-        this.community = community;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
     public Image getPersonPicture() {
         return personPicture;
     }
 
     public void setPersonPicture(Image personPicture) {
         this.personPicture = personPicture;
+    }
+    
+    @Override
+    public String toString() {
+        return firstName;
     }
 }

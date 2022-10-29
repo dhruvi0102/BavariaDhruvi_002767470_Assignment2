@@ -10,7 +10,7 @@ import Hospital.PersonDirectory;
 import java.awt.CardLayout;
 import java.awt.Component;
 import javax.swing.JPanel;
-import ui.LoginScreen;
+import ui.MainScreen;
 /**
  *
  * @author dhruv
@@ -46,6 +46,9 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
         btn_view = new javax.swing.JButton();
         workAreaJPanel = new javax.swing.JPanel();
 
+        menuJPanel.setBackground(new java.awt.Color(204, 204, 255));
+
+        btn_Back.setForeground(new java.awt.Color(0, 102, 102));
         btn_Back.setText("Back");
         btn_Back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +56,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btn_add.setForeground(new java.awt.Color(0, 102, 102));
         btn_add.setText("Add Doctor");
         btn_add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +64,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btn_view.setForeground(new java.awt.Color(0, 102, 102));
         btn_view.setText("View Doctor");
         btn_view.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,7 +141,7 @@ public class DoctorWorkAreaJPanel extends javax.swing.JPanel {
 
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        LoginScreen loginPanel = (LoginScreen) component;
+        MainScreen loginPanel = (MainScreen) component;
         //        loginPanel.populateSupplierCombo();
 
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();

@@ -9,7 +9,7 @@ import java.awt.Component;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import Hospital.CityDirectory;
-import ui.LoginScreen;
+import ui.MainScreen;
 
 /**
  *
@@ -22,24 +22,11 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
      */
     JPanel mainWorkArea;
     CityDirectory cityDirectory;
-//    public CityWorkAreaJPanel() {
-//        initComponents();
-//    }
 
     public CityWorkAreaJPanel(JPanel mainWorkArea, CityDirectory cityDirectory) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.cityDirectory = cityDirectory;
-//        if (this.cityDirectory.getCities().size() < 0) {
-//            CityWorkAreaJPanel.btnNewCommunity.setEnabled(true);
-//            CityWorkAreaJPanel.btnManageCity.setEnabled(true);
-//            CityWorkAreaJPanel.btnNewHouse.setEnabled(true);
-//        } else {
-//            CityWorkAreaJPanel.btnNewCommunity.setEnabled(false);
-//            CityWorkAreaJPanel.btnManageCity.setEnabled(false);
-//            CityWorkAreaJPanel.btnNewHouse.setEnabled(false);
-//        };
-
     }
 
     /**
@@ -61,8 +48,10 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
         workAreaJPanel = new javax.swing.JPanel();
 
         jSplitPane1.setDividerLocation(80);
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
+        menuBarJPanel.setBackground(new java.awt.Color(204, 204, 255));
+
+        btnAddNewCity.setForeground(new java.awt.Color(0, 102, 102));
         btnAddNewCity.setText("Add City");
         btnAddNewCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +59,7 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setForeground(new java.awt.Color(0, 102, 102));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -77,6 +67,7 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnNewCommunity.setForeground(new java.awt.Color(0, 102, 102));
         btnNewCommunity.setText("Add Community");
         btnNewCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -84,6 +75,7 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnManageCity.setForeground(new java.awt.Color(0, 102, 102));
         btnManageCity.setText("Manage City");
         btnManageCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -91,6 +83,7 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnNewHouse.setForeground(new java.awt.Color(0, 102, 102));
         btnNewHouse.setText("Add House");
         btnNewHouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,10 +95,22 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
         menuBarJPanel.setLayout(menuBarJPanelLayout);
         menuBarJPanelLayout.setHorizontalGroup(
             menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarJPanelLayout.createSequentialGroup()
+            .addGroup(menuBarJPanelLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
+                    .addComponent(btnAddNewCity)
+                    .addComponent(btnNewCommunity)
+                    .addComponent(btnNewHouse)
+                    .addComponent(btnManageCity))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        menuBarJPanelLayout.setVerticalGroup(
+            menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarJPanelLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAddNewCity)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnNewCommunity)
@@ -113,23 +118,12 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnNewHouse)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnManageCity)
-                .addContainerGap())
-        );
-        menuBarJPanelLayout.setVerticalGroup(
-            menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuBarJPanelLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addGroup(menuBarJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnNewCommunity)
-                    .addComponent(btnAddNewCity)
-                    .addComponent(btnBack)
-                    .addComponent(btnNewHouse)
-                    .addComponent(btnManageCity))
-                .addGap(27, 27, 27))
+                .addContainerGap(192, Short.MAX_VALUE))
         );
 
         jSplitPane1.setTopComponent(menuBarJPanel);
 
+        workAreaJPanel.setBackground(new java.awt.Color(204, 204, 255));
         workAreaJPanel.setLayout(new java.awt.CardLayout());
         jSplitPane1.setRightComponent(workAreaJPanel);
 
@@ -141,7 +135,7 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,19 +172,10 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnNewCommunityActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        // TODO add your handling code here:
-        //        LoginScreen loginScreen = new LoginScreen(mainWorkArea, cityDirectory);
-        //        mainWorkArea.add("LoginScreen", loginScreen);
-        //        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
-        //        layout.next(mainWorkArea);
-
         mainWorkArea.remove(this);
-
         Component[] componentArray = mainWorkArea.getComponents();
         Component component = componentArray[componentArray.length - 1];
-        LoginScreen loginPanel = (LoginScreen) component;
-        //        loginPanel.populateSupplierCombo();
-
+        MainScreen loginPanel = (MainScreen) component;
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.previous(mainWorkArea);
     }//GEN-LAST:event_btnBackActionPerformed
@@ -207,9 +192,9 @@ public class CityWorkAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddNewCity;
     private javax.swing.JButton btnBack;
-    private javax.swing.JButton btnManageCity;
-    private javax.swing.JButton btnNewCommunity;
-    private javax.swing.JButton btnNewHouse;
+    protected static javax.swing.JButton btnManageCity;
+    protected static javax.swing.JButton btnNewCommunity;
+    protected static javax.swing.JButton btnNewHouse;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel menuBarJPanel;
     private javax.swing.JPanel workAreaJPanel;
