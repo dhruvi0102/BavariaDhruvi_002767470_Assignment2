@@ -230,8 +230,8 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
                 }
 
             model.setValueAt(HospitalName, jTable1.getSelectedRow(),0);
-            model.setValueAt(City,jTable1.getSelectedRow(), 1);
-            model.setValueAt(Community,jTable1.getSelectedRow(),2);
+            model.setValueAt(City,jTable1.getSelectedRow(), 2);
+            model.setValueAt(Community,jTable1.getSelectedRow(),1);
             // After successfully setting, display the data:
             JOptionPane.showMessageDialog(null,"Update Successful!");
  
