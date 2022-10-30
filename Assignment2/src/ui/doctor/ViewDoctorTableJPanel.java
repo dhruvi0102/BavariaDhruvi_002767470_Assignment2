@@ -7,6 +7,9 @@ package ui.doctor;
 import Hospital.CityDirectory;
 import Hospital.Doctor;
 import Hospital.DoctorDirectory;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.RowFilter;
@@ -271,13 +274,7 @@ public class ViewDoctorTableJPanel extends javax.swing.JPanel {
         txtAge.setText(String.valueOf(selectedEmployee.getAge()));
         txt_Speciality.setText(String.valueOf(selectedEmployee.getSpeciality()));
         txt_Hospital.setText(String.valueOf(selectedEmployee.getHospital()));
-        
-        txtSsn.setText("");
-       txtFirstName.setText("");
-       txtLastName.setText("");
-       txtAge.setText("");
-       txt_Speciality.setText("");
-       txt_Hospital.setText("");
+
     }//GEN-LAST:event_btn_ViewActionPerformed
 
     private void txt_SpecialityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_SpecialityActionPerformed
@@ -286,7 +283,14 @@ public class ViewDoctorTableJPanel extends javax.swing.JPanel {
 
     private void txt_SpecialityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SpecialityKeyReleased
         // TODO add your handling code here:
-
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txt_Speciality.getText());
+        if (!match.matches()) {
+            txt_Speciality.setBackground(Color.red);
+        } else {
+            txt_Speciality.setBackground(Color.white);
+        }
     }//GEN-LAST:event_txt_SpecialityKeyReleased
 
     private void txtLastNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLastNameKeyReleased
@@ -331,6 +335,10 @@ public class ViewDoctorTableJPanel extends javax.swing.JPanel {
         String speciality = txt_Speciality.getText();
         String Hospital = txt_Hospital.getText();
         
+        if (!(txt_Speciality.getText().matches("^[A-Za-z ]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid Speciality.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+       }
 
         DefaultTableModel model = (DefaultTableModel) DoctorTable1.getModel();
 

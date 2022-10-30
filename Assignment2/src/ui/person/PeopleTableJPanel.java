@@ -11,9 +11,13 @@ import Hospital.House;
 import Hospital.Person;
 import Hospital.PersonDirectory;
 import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -60,6 +64,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         btnPeopleSearch = new javax.swing.JButton();
         cmbCommunity = new javax.swing.JComboBox();
         cmbCity = new javax.swing.JComboBox();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPeopleTable = new javax.swing.JTable();
         btnPersonUpdate = new javax.swing.JButton();
@@ -71,7 +76,6 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         lblAge = new javax.swing.JLabel();
         txtAge = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
-        txtGender = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         lblLName = new javax.swing.JLabel();
@@ -86,6 +90,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         txtLName = new javax.swing.JTextField();
         lblPhoneNumber = new javax.swing.JLabel();
         txtPhoneNumber = new javax.swing.JTextField();
+        txtGender = new javax.swing.JTextField();
 
         btnPeopleSearch.setText("Search");
         btnPeopleSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -99,6 +104,8 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                 cmbCityActionPerformed(evt);
             }
         });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -161,11 +168,23 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         lblAge.setForeground(new java.awt.Color(0, 102, 102));
         lblAge.setText("Age:");
 
+        txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtAgeKeyReleased(evt);
+            }
+        });
+
         lblGender.setForeground(new java.awt.Color(0, 102, 102));
         lblGender.setText("Gender:");
 
         lblEmail.setForeground(new java.awt.Color(0, 102, 102));
         lblEmail.setText("Email:");
+
+        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtEmailKeyReleased(evt);
+            }
+        });
 
         lblLName.setForeground(new java.awt.Color(0, 102, 102));
         lblLName.setText("LastName:");
@@ -187,22 +206,52 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         lblSSN.setForeground(new java.awt.Color(0, 102, 102));
         lblSSN.setText("SSN:");
 
+        txtSSN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtSSNKeyReleased(evt);
+            }
+        });
+
         lblFName.setForeground(new java.awt.Color(0, 102, 102));
         lblFName.setText("FirstName:");
 
+        txtFName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtFNameKeyReleased(evt);
+            }
+        });
+
+        txtCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCommunityKeyReleased(evt);
+            }
+        });
+
+        txtLName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtLNameKeyReleased(evt);
+            }
+        });
+
         lblPhoneNumber.setForeground(new java.awt.Color(0, 102, 102));
         lblPhoneNumber.setText("Phone Number:");
+
+        txtPhoneNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtPhoneNumberKeyReleased(evt);
+            }
+        });
+
+        txtGender.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtGenderKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(btnPersonView)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDeletePerson)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,15 +259,14 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                         .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblCommunity)
-                            .addComponent(lblFName)
-                            .addComponent(lblLName)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblCity)
                                 .addGap(171, 171, 171)
                                 .addComponent(lblPHouseName1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(lblPhoneNumber)
                             .addComponent(lblAge)
-                            .addComponent(lblGender)
+                            .addComponent(lblFName)
+                            .addComponent(lblLName)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -228,16 +276,18 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                                     .addGap(63, 63, 63)
                                     .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblEmail)
-                                .addGap(56, 56, 56)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblEmail)
+                                    .addComponent(lblGender))
+                                .addGap(47, 47, 47)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtCity, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtGender, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                        .addComponent(txtGender, javax.swing.GroupLayout.Alignment.LEADING)))))
+                        .addContainerGap(416, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
@@ -250,6 +300,12 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                                         .addComponent(txtSearchBySSN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addContainerGap())))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(btnPersonView)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDeletePerson)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -304,7 +360,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -349,22 +405,53 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
             int SSN= Integer.parseInt(txtSSN.getText());           
             String City= txtCity.getText();
             String Community= txtCommunity.getText();
-            int Mobile_Number= Integer.parseInt(txtPhoneNumber.getText());
+            //int Mobile_Number= Integer.parseInt(txtPhoneNumber.getText());
             int Age = Integer.parseInt(txtAge.getText());
             String Gender = txtGender.getText();
             String Email = txtEmail.getText();
+            String Contact =txtPhoneNumber.getText();
+            String ssnCheck = txtSSN.getText();
+            
+            if (!(txtFName.getText().matches("^[A-Za-z ]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid first name. First name can only contain alphabets", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            } else if (!(txtLName.getText().matches("^[A-Za-z ]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid last name. Last name can only contain alphabets", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            else if(!(Contact.matches("^[0-9]*$") && Contact.length() == 10)){
+                    JOptionPane.showMessageDialog(null, "Please enter correct Phone Number.");
+                    return;
+            }
+            else if (!(txtEmail.getText().matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid email.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            else if (!(ssnCheck.matches("^[0-9]*$") && ssnCheck.length() == 9)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid SSN.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            else if (!(Age >= 1 && Age<=150)) {
+                JOptionPane.showMessageDialog(this, "Please enter valid age.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            else if (!(txtGender.getText().matches("^[A-Za-z ]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid gender.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
             
             //set updated value on table row
             model.setValueAt(FirstName, tblPeopleTable.getSelectedRow(),0);
             model.setValueAt(LastName, tblPeopleTable.getSelectedRow(),1);
             model.setValueAt(SSN, tblPeopleTable.getSelectedRow(),2);
-            model.setValueAt(Mobile_Number, tblPeopleTable.getSelectedRow(),3);
+            model.setValueAt(Contact, tblPeopleTable.getSelectedRow(),3);
             model.setValueAt(City, tblPeopleTable.getSelectedRow(),4);
             model.setValueAt(Community, tblPeopleTable.getSelectedRow(),5);
             model.setValueAt(Age,tblPeopleTable.getSelectedRow(),6);
             model.setValueAt(Gender,tblPeopleTable.getSelectedRow(),7);
             model.setValueAt(Email,tblPeopleTable.getSelectedRow(),8);
-           
+            
             // After successfully setting, display the data:
             JOptionPane.showMessageDialog(null,"Update Successful!");
  
@@ -400,7 +487,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         int i= tblPeopleTable.getSelectedRow();
         
         if(i<0){
-            JOptionPane.showMessageDialog(null,"Error"); 
+            JOptionPane.showMessageDialog(null,"Please select a record to view."); 
         }
         
         else{
@@ -413,7 +500,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
             String j= model.getValueAt(i,0).toString();
             personDirectory.getPeople().remove(i);
             model.removeRow(i);
-            JOptionPane.showMessageDialog(null,"Hospital Deleted");
+            JOptionPane.showMessageDialog(null,"Record Deleted");
             
             populatePeopleTable();  
             //removing data textfield values from the display bars:
@@ -453,7 +540,8 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                 row[6] = person.getAge();
                 row[7] = person.getGender();
                 row[8] = person.getEmail();
-            
+                row [9] = person.getCategory();
+                
             model.addRow(row); 
             //clearing the field
             txtSearchBySSN.setText("");
@@ -468,7 +556,121 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
 
     private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
         // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtCity.getText());
+        if (!match.matches()) {
+            txtCity.setBackground(Color.red);
+        } else {
+            txtCity.setBackground(Color.white);
+        }
     }//GEN-LAST:event_txtCityKeyReleased
+
+    private void txtSSNKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSSNKeyReleased
+        // TODO add your handling code here:
+        String SSN = txtSSN.getText();
+        String regex = "^[0-9]*$";
+        Pattern patt = Pattern.compile(regex);
+        Matcher match = patt.matcher(txtSSN.getText());
+        if (!(match.matches() && SSN.length() == 9)) {
+            //lblPSsnErr.setText("Incorrect social security number");
+            txtSSN.setBackground(Color.red);
+        } else {
+            txtSSN.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtSSNKeyReleased
+
+    private void txtFNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFNameKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtFName.getText());
+        if (!match.matches()) {
+            //lblPFirstNameErr.setText("Incorrect firstname");
+            txtFName.setBackground(Color.red);
+        } else {
+            txtFName.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtFNameKeyReleased
+
+    private void txtLNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtLNameKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtLName.getText());
+        if (!match.matches()) {
+            //lblPLastNameErr.setText("Incorrect last name");
+            txtLName.setBackground(Color.red);
+        } else {
+            txtLName.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtLNameKeyReleased
+
+    private void txtCommunityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCommunityKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtCommunity.getText());
+        if (!match.matches()) {
+            txtCommunity.setBackground(Color.red);
+        } else {
+            txtCommunity.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtCommunityKeyReleased
+
+    private void txtAgeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAgeKeyReleased
+        // TODO add your handling code here:
+        int age = Integer.parseInt(txtAge.getText());
+        if(!(age >= 1 && age <= 150)){
+            txtAge.setBackground(Color.red);
+        }else{
+            txtAge.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtAgeKeyReleased
+
+    private void txtGenderKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGenderKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtGender.getText());
+        if (!match.matches()) {
+            txtGender.setBackground(Color.red);
+        } else {
+            txtGender.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtGenderKeyReleased
+
+    private void txtEmailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtEmail.getText());
+        if (!match.matches()) {
+            //lblPWeightErr.setText("Incorrect weight format");
+            txtEmail.setBackground(Color.red);
+        } else {
+            txtEmail.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtEmailKeyReleased
+
+    private void txtPhoneNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPhoneNumberKeyReleased
+        // TODO add your handling code here:
+        String phonePattern = "^[0-9]*$";
+        Pattern patt = Pattern.compile(phonePattern);
+        if (evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9' || ((evt.getKeyCode() == KeyEvent.VK_BACK_SPACE) || (evt.getKeyCode() == KeyEvent.VK_DELETE))) {
+            txtPhoneNumber.setEditable(true);
+        } else {
+            txtPhoneNumber.setEditable(false);
+        }
+        Matcher match = patt.matcher(txtPhoneNumber.getText());
+        String Contact = txtPhoneNumber.getText();
+        if (!(match.matches() && Contact.length() == 10)) {
+            txtPhoneNumber.setBackground(Color.red);
+        } else {
+            //txtPhoneNumber.setText(null);
+            txtPhoneNumber.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtPhoneNumberKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -478,6 +680,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnPersonView;
     private javax.swing.JComboBox cmbCity;
     private javax.swing.JComboBox cmbCommunity;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCity;

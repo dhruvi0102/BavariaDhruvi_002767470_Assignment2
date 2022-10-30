@@ -65,6 +65,7 @@ public class MainScreen extends javax.swing.JPanel {
         btnHospital = new javax.swing.JButton();
         btnDoctor = new javax.swing.JButton();
         btnDoctorSearch = new javax.swing.JButton();
+        btn_Logout = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -116,25 +117,34 @@ public class MainScreen extends javax.swing.JPanel {
             }
         });
 
+        btn_Logout.setText("Logout");
+        btn_Logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LogoutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDoctorSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_Logout)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnDoctorSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -150,7 +160,9 @@ public class MainScreen extends javax.swing.JPanel {
                     .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnDoctorSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(271, 271, 271))
+                .addGap(37, 37, 37)
+                .addComponent(btn_Logout)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -178,10 +190,17 @@ public class MainScreen extends javax.swing.JPanel {
             btnPerson.setVisible(false);
         }else if (role.equals("HospitalAdmin")){
             btnDoctor.setVisible(false);
-            btnDoctorSearch.setVisible(true);
+            btnDoctorSearch.setVisible(false);
             btnCommunity.setVisible(false);
             btnHospital.setVisible(true);
-            btnEncounter.setVisible(true);
+            btnEncounter.setVisible(false);
+            btnPerson.setVisible(false);
+        }else if (role.equals("CommunityAdmin")){
+            btnDoctor.setVisible(false);
+            btnDoctorSearch.setVisible(false);
+            btnCommunity.setVisible(true);
+            btnHospital.setVisible(false);
+            btnEncounter.setVisible(false);
             btnPerson.setVisible(false);
         }
         
@@ -190,7 +209,7 @@ public class MainScreen extends javax.swing.JPanel {
     private void btnCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityActionPerformed
         // TODO add your handling code here:
         CityWorkAreaJPanel cwjp = new CityWorkAreaJPanel(mainWorkArea, cityDirectory);
-        mainWorkArea.add("WordAreaJPanel", cwjp);
+        mainWorkArea.add("CityWorkAreaJPanel", cwjp);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
     }//GEN-LAST:event_btnCommunityActionPerformed
@@ -236,6 +255,19 @@ public class MainScreen extends javax.swing.JPanel {
         layout.next(mainWorkArea);
     }//GEN-LAST:event_btnDoctorSearchActionPerformed
 
+    private void btn_LogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LogoutActionPerformed
+        // TODO add your handling code here:mainWorkArea.remove(this);
+        mainWorkArea.remove(this);
+
+        Component[] componentArray = mainWorkArea.getComponents();
+        Component component = componentArray[componentArray.length - 1];
+        LoginJPanel loginPanel = (LoginJPanel) component;
+        //        loginPanel.populateSupplierCombo();
+
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.previous(mainWorkArea);
+    }//GEN-LAST:event_btn_LogoutActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCommunity;
@@ -244,6 +276,7 @@ public class MainScreen extends javax.swing.JPanel {
     private javax.swing.JButton btnEncounter;
     private javax.swing.JButton btnHospital;
     private javax.swing.JButton btnPerson;
+    private javax.swing.JButton btn_Logout;
     // End of variables declaration//GEN-END:variables
 
      

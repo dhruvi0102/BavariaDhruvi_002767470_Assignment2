@@ -15,6 +15,7 @@ import Hospital.Patient;
 import Hospital.PatientDirectory;
 import Hospital.Person;
 import Hospital.PersonDirectory;
+import java.awt.Color;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -93,6 +94,12 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
 
         lblSsn.setForeground(new java.awt.Color(0, 102, 102));
         lblSsn.setText("SSN");
+
+        txt_Speciality.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txt_SpecialityKeyReleased(evt);
+            }
+        });
 
         lblLastName.setForeground(new java.awt.Color(0, 102, 102));
         lblLastName.setText("Last Name");
@@ -232,17 +239,18 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
                     doctorInfo.setAge(person.getAge());
                     doctorInfo.setEmail(person.getEmail());
                     doctorInfo.setPersonPicture(person.getPersonPicture());
-                    //if(doctorInfo.getCategory() == "Doctor"){
+                    doctorInfo.setCategory(person.getCategory());
+                    if(doctorInfo.getCategory() == "Doctor"){
                     txtFirstName.setText(doctorInfo.getFirstName());
                     txtLastName.setText(doctorInfo.getLastName());
                     //txtPatientDob.setText(dateFormat.format(patientInfo.getDob()));
                     txtAge.setText(String.valueOf(doctorInfo.getAge()));
                     DoctorDirectory.addDoctor(doctorInfo);
                     return;
-                    //}
-                   // else{
-                      // JOptionPane.showMessageDialog(this, "Entered SSN number is not a doctor", "Info", JOptionPane.WARNING_MESSAGE); 
-                    //}
+                    }
+                   else{
+                      JOptionPane.showMessageDialog(this, "Entered SSN number does not belong to a Doctor", "Info", JOptionPane.WARNING_MESSAGE); 
+                   }
                 }
             }
             if (doctorInfo == null) {
@@ -268,7 +276,10 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
        String Hospital = cmbHospital.getSelectedItem().toString();
        //String City = cmbCity.getSelectedItem().toString();
        
-       
+       if (!(txt_Speciality.getText().matches("^[A-Za-z ]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid Speciality.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+       }
        Doctor doctor = doctorDirectory.addnewDoctor();
        
        doctor.setSocialSecurityNum(SSN);
@@ -286,6 +297,18 @@ public class AddDoctorDetailsJPanel extends javax.swing.JPanel {
        txtAge.setText("");
        txt_Speciality.setText("");
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void txt_SpecialityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_SpecialityKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txt_Speciality.getText());
+        if (!match.matches()) {
+            txt_Speciality.setBackground(Color.red);
+        } else {
+            txt_Speciality.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txt_SpecialityKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

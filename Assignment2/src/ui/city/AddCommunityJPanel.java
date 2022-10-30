@@ -129,7 +129,7 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (ValidFields()) {
             try {
-                if (!(txtCommunityName.getText().matches("^[a-zA-Z]{1,30}$"))) {
+                if (!(txtCommunityName.getText().matches("^[A-Za-z ]*$"))) {
                 JOptionPane.showMessageDialog(this, "Please enter valid community name.", "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
                 }
@@ -154,7 +154,7 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
 
     private void txtCommunityNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCommunityNameKeyReleased
         // TODO add your handling code here:
-        String pattern = "^[a-zA-Z]{1,30}$";
+        String pattern = "^[A-Za-z ]*$";
         Pattern patt = Pattern.compile(pattern);
         Matcher match = patt.matcher(txtCommunityName.getText());
         if (!match.matches()) {

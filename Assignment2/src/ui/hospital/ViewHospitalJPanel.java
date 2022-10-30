@@ -13,6 +13,9 @@ import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 import Hospital.HospitalDirectory;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -116,6 +119,18 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
         lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblCommunity.setText("Community:");
 
+        txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCityKeyReleased(evt);
+            }
+        });
+
+        txtCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCommunityKeyReleased(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -203,6 +218,16 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
             String HospitalName= txtHospitalName.getText();
             String Community= txtCommunity.getText();
             String City= txtCity.getText();
+            
+            if (!(txtCommunity.getText().matches("^[A-Za-z ]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid community name.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            if (!(txtCity.getText().matches("^[A-Za-z ]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid city name.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+                }
 
             model.setValueAt(HospitalName, jTable1.getSelectedRow(),0);
             model.setValueAt(City,jTable1.getSelectedRow(), 1);
@@ -244,6 +269,30 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
                 txtCommunity.setText("");
         }
     }//GEN-LAST:event_btnDeleteHospitalActionPerformed
+
+    private void txtCommunityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCommunityKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtCommunity.getText());
+        if (!match.matches()) {
+            txtCommunity.setBackground(Color.red);
+        } else {
+            txtCommunity.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtCommunityKeyReleased
+
+    private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[A-Za-z ]*$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtCity.getText());
+        if (!match.matches()) {
+            txtCity.setBackground(Color.red);
+        } else {
+            txtCity.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtCityKeyReleased
 
     
     

@@ -4,22 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/MainScreen.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/Hospital/PatientDirectory.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/hospital/ViewHospitalJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/patient/PatientTableJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/patient/PatientWorkAreaJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/Hospital/Person.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/Hospital/Patient.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/doctor/ViewforDoctorTableJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/doctorSearch/ViewDoctorforPatientTableJPanel.java</file>
+            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/LoginJPanel.java</file>
             <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/MainJFrame.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/person/AddPersonInfoJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/hospital/HospitalWorkAreaJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/person/PersonWorkAreaJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/doctor/AddDoctorDetailsJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/hospital/AddHospitalInfoJPanel.java</file>
-            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/doctor/DoctorWorkAreaJPanel.java</file>
+            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/Hospital/Person.java</file>
             <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/person/PeopleTableJPanel.java</file>
+            <file>file:/D:/Northeastern/Semester%201/INFO%205100/FinalAssignment2/Assignment2/src/ui/doctor/DoctorWorkAreaJPanel.java</file>
         </group>
     </open-files>
 </project-private>

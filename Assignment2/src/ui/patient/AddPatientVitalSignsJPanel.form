@@ -65,16 +65,20 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="txtOxygen" min="-2" pref="179" max="-2" attributes="0"/>
                                   <Component id="txtLastName" linkSize="1" max="32767" attributes="0"/>
-                                  <Group type="102" attributes="0">
-                                      <Component id="txtSsn" min="-2" pref="179" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="btnSearchPatient" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                                   <Component id="txtFirstName" linkSize="1" max="32767" attributes="0"/>
                                   <Component id="txtPulse" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
                                   <Component id="txtPressure" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
                                   <Component id="txtTemperature" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
                                   <Component id="txtPatientAge" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="txtSsn" min="-2" pref="179" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="btnSearchPatient" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
                       </Group>
@@ -144,6 +148,8 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="lblDate" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -322,6 +328,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOxygen">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtOxygenKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="lblDate">
       <Properties>
@@ -336,6 +345,20 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
         </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtDateActionPerformed"/>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDateKeyReleased"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="MM/DD/YYYY"/>
       </Properties>
     </Component>
   </SubComponents>

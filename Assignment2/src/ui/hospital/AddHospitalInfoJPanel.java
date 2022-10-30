@@ -9,6 +9,9 @@ import Hospital.CityDirectory;
 import Hospital.Community;
 import Hospital.Hospital;
 import Hospital.HospitalDirectory;
+import java.awt.Color;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -67,6 +70,12 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
 
         lblHospitalName.setForeground(new java.awt.Color(0, 102, 102));
         lblHospitalName.setText("Hospital Name:");
+
+        txtHospitalName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtHospitalNameKeyReleased(evt);
+            }
+        });
 
         lblCreateHospital.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         lblCreateHospital.setForeground(new java.awt.Color(0, 102, 102));
@@ -142,6 +151,11 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         
         Hospital Hospital_details= hospitalDirectory.addNewData();
         
+        /*if (!(txtHospitalName.getText().matches("^[a-zA-Z]*$"))) {
+                JOptionPane.showMessageDialog(this, "Please enter valid hospital name.", "Info", JOptionPane.INFORMATION_MESSAGE);
+                return;
+         }*/
+        
         Hospital_details.setCity(City);
         Hospital_details.setCommunity(Community);
         Hospital_details.setHospital_Name(Hospital_Name);
@@ -155,6 +169,18 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         populateCommunityCombo();
     }//GEN-LAST:event_cmbCityActionPerformed
+
+    private void txtHospitalNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtHospitalNameKeyReleased
+        // TODO add your handling code here:
+        /*String pattern = "^[a-zA-Z]{1,30}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtHospitalName.getText());
+        if (!match.matches()) {
+            txtHospitalName.setBackground(Color.red);
+        } else {
+            txtHospitalName.setBackground(Color.white);
+        }*/
+    }//GEN-LAST:event_txtHospitalNameKeyReleased
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveHospital;

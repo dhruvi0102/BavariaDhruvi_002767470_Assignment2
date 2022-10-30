@@ -83,6 +83,8 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         txtOxygen = new javax.swing.JTextField();
         lblDate = new javax.swing.JLabel();
         txtDate = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -163,10 +165,29 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         lblOxygen.setForeground(new java.awt.Color(0, 102, 102));
         lblOxygen.setText("Oxygen");
 
+        txtOxygen.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtOxygenKeyReleased(evt);
+            }
+        });
+
         lblDate.setForeground(new java.awt.Color(0, 102, 102));
         lblDate.setText("Date");
 
         txtDate.setForeground(new java.awt.Color(0, 102, 102));
+        txtDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDateActionPerformed(evt);
+            }
+        });
+        txtDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDateKeyReleased(evt);
+            }
+        });
+
+        jLabel2.setForeground(new java.awt.Color(0, 102, 102));
+        jLabel2.setText("MM/DD/YYYY");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -209,15 +230,18 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtOxygen, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtLastName)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnSearchPatient))
                                     .addComponent(txtFirstName)
                                     .addComponent(txtPulse, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtTemperature, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(txtPatientAge, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txtSsn, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel1)
+                                            .addComponent(btnSearchPatient)
+                                            .addComponent(jLabel2))))))))
                 .addContainerGap(8, Short.MAX_VALUE))
         );
 
@@ -275,7 +299,9 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDate)
-                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
@@ -374,12 +400,17 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
                     return;
                 }
             } catch (NumberFormatException e) {
-                JOptionPane.showMessageDialog(this, "Please check the form data", "Info", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Please enter correct vitals.", "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-
+            
+            if(!(txtDate.getText().matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$"))){
+                    JOptionPane.showMessageDialog(this, "Please enter correct Date", "Info", JOptionPane.INFORMATION_MESSAGE);
+                    return;
+            }
+            
             VitalSigns vs = ((EncounterHistory) patientInfo.getEncounterHistory()).addnewVitals();
-
+            
             vs.setTemperature(temperature);
             vs.setBloodPressure(pressure);
             vs.setPulse(pulse);
@@ -409,7 +440,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             txtTemperature.setBackground(Color.red);
         } else {
             lblTempErr.setText("");
-            txtTemperature.setBackground(Color.WHITE);
+            txtTemperature.setBackground(Color.white);
         }
     }//GEN-LAST:event_txtTemperatureKeyReleased
 
@@ -427,10 +458,39 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_txtPressureKeyReleased
 
+    private void txtOxygenKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtOxygenKeyReleased
+        // TODO add your handling code here:
+        String pattern = "^[-?\\d+(\\.\\d+)?]{0,30}$";
+        Pattern patt = Pattern.compile(pattern);
+        Matcher match = patt.matcher(txtOxygen.getText());
+        if (!match.matches()) {
+            //lblBPErr.setText("Incorrect blood pressure format");
+            txtOxygen.setBackground(Color.red);
+        } else {
+            txtOxygen.setBackground(Color.white);
+        }
+    }//GEN-LAST:event_txtOxygenKeyReleased
+
+    private void txtDateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDateKeyReleased
+        // TODO add your handling code here:
+        String StartDate = txtDate.getText();
+        if(StartDate.matches("^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$")){   
+            txtDate.setBackground(Color.white);
+        }else{
+            txtDate.setBackground(Color.red);
+        }
+    }//GEN-LAST:event_txtDateKeyReleased
+
+    private void txtDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearchPatient;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblBPErr;
     private javax.swing.JLabel lblDate;
     private javax.swing.JLabel lblDateErr;

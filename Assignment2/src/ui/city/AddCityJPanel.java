@@ -103,7 +103,7 @@ public class AddCityJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         if (ValidFields()) {
             try {
-                if (!(txtCityName.getText().matches("^[a-zA-Z]{1,30}$"))) {
+                if (!(txtCityName.getText().matches("^[A-Za-z ]*$"))) {
                 JOptionPane.showMessageDialog(this, "Please enter valid city name.", "Info", JOptionPane.INFORMATION_MESSAGE);
                 return;
                 }
@@ -126,7 +126,7 @@ public class AddCityJPanel extends javax.swing.JPanel {
 
     private void txtCityNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityNameKeyReleased
         // TODO add your handling code here:
-        String pattern = "^[a-zA-Z]{1,30}$";
+        String pattern = "^[A-Za-z ]*$";
         Pattern patt = Pattern.compile(pattern);
         Matcher match = patt.matcher(txtCityName.getText());
         if (!match.matches()) {
