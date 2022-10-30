@@ -190,7 +190,7 @@ public class MainScreen extends javax.swing.JPanel {
             btnEncounter.setVisible(true);
             btnPerson.setVisible(false);
         }else if (role.equals("HospitalAdmin")){
-            btnDoctor.setVisible(false);
+            btnDoctor.setVisible(true);
             btnDoctorSearch.setVisible(false);
             btnCommunity.setVisible(false);
             btnHospital.setVisible(true);

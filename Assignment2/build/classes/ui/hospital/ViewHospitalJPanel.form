@@ -195,11 +195,17 @@
     <Component class="javax.swing.JTextField" name="txtHospitalName">
     </Component>
     <Component class="javax.swing.JTextField" name="txtCity">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCityKeyReleased"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtCommunity">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
       <Events>
         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtCommunityKeyReleased"/>
       </Events>

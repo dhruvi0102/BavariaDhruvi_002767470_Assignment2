@@ -125,6 +125,7 @@ public class ViewDoctorTableJPanel extends javax.swing.JPanel {
         lblLastName.setForeground(new java.awt.Color(0, 102, 102));
         lblLastName.setText("Last Name");
 
+        txtLastName.setEditable(false);
         txtLastName.setEnabled(false);
         txtLastName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -143,6 +144,7 @@ public class ViewDoctorTableJPanel extends javax.swing.JPanel {
             }
         });
 
+        txtFirstName.setEditable(false);
         txtFirstName.setEnabled(false);
         txtFirstName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,6 +166,7 @@ public class ViewDoctorTableJPanel extends javax.swing.JPanel {
         lblPatientAge.setForeground(new java.awt.Color(0, 102, 102));
         lblPatientAge.setText("Age");
 
+        txtAge.setEditable(false);
         txtAge.setEnabled(false);
         txtAge.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {

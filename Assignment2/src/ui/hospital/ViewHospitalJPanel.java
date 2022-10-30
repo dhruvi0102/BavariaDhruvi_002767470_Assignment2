@@ -119,12 +119,14 @@ public class ViewHospitalJPanel extends javax.swing.JPanel {
         lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblCommunity.setText("Community:");
 
+        txtCity.setEditable(false);
         txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCityKeyReleased(evt);
             }
         });
 
+        txtCommunity.setEditable(false);
         txtCommunity.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtCommunityKeyReleased(evt);

@@ -131,7 +131,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblPeopleTable);
 
         btnPersonUpdate.setForeground(new java.awt.Color(0, 102, 102));
-        btnPersonUpdate.setText("UPDATE");
+        btnPersonUpdate.setText("Update");
         btnPersonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPersonUpdateActionPerformed(evt);
@@ -147,7 +147,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         });
 
         btnPersonView.setForeground(new java.awt.Color(0, 102, 102));
-        btnPersonView.setText("VIEW");
+        btnPersonView.setText("View");
         btnPersonView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPersonViewActionPerformed(evt);
@@ -155,7 +155,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         });
 
         btnDeletePerson.setForeground(new java.awt.Color(0, 102, 102));
-        btnDeletePerson.setText("DELETE");
+        btnDeletePerson.setText("Delete");
         btnDeletePerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeletePersonActionPerformed(evt);
@@ -505,6 +505,9 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
             txtCommunity.setText("");
             txtCity.setText("");
             txtPhoneNumber.setText("");
+            txtAge.setText("");
+            txtGender.setText("");
+            txtEmail.setText("");
         }
         
     }//GEN-LAST:event_btnDeletePersonActionPerformed

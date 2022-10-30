@@ -237,7 +237,7 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
         lblPDobErr.setForeground(new java.awt.Color(255, 0, 0));
 
         lblPHouseName.setForeground(new java.awt.Color(0, 102, 102));
-        lblPHouseName.setText("House Name");
+        lblPHouseName.setText("House Number");
 
         txtPHouseName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -334,8 +334,8 @@ public class AddPersonInfoJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSavePerson))))
+                            .addComponent(btnSavePerson)
+                            .addComponent(lblPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
