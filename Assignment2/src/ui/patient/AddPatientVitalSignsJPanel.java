@@ -294,7 +294,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Patient patient = PatientDirectory.searchPatient(txtSsn.getText());
         
-        String category = patient.getCategory();
+       // String category = patient.getCategory();
         //DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         patientInfo = patient;
         if (patientInfo == null) {
@@ -342,8 +342,8 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             //lblPulseErr.setText("Incorrect pulse format");
             txtPulse.setBackground(Color.red);
         } else {
-            lblPulseErr.setText(null);
-            txtPulse.setBackground(null);
+            lblPulseErr.setText("");
+            txtPulse.setBackground(Color.white);
         }
     }//GEN-LAST:event_txtPulseKeyReleased
 
@@ -394,6 +394,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             txtTemperature.setText("");
             txtPressure.setText("");
             txtPulse.setText("");
+            txtOxygen.setText("");
             txtDate.setText("");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -407,7 +408,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             //lblTempErr.setText("Incorrect temerature format");
             txtTemperature.setBackground(Color.red);
         } else {
-            lblTempErr.setText(null);
+            lblTempErr.setText("");
             txtTemperature.setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_txtTemperatureKeyReleased
@@ -421,7 +422,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             //lblBPErr.setText("Incorrect blood pressure format");
             txtPressure.setBackground(Color.red);
         } else {
-            lblBPErr.setText(null);
+            lblBPErr.setText("");
             txtPressure.setBackground(Color.white);
         }
     }//GEN-LAST:event_txtPressureKeyReleased

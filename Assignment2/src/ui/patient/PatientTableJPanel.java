@@ -208,7 +208,7 @@ public class PatientTableJPanel extends javax.swing.JPanel {
 
         for (VitalSigns vs : history.getEncounterHistory()) {
 
-            Object[] row = new Object[4];
+            Object[] row = new Object[5];
             row[0] = vs;
             row[1] = vs.getTemperature();
             row[2] = vs.getBloodPressure();
