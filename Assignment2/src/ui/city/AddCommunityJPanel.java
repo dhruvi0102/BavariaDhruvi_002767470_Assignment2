@@ -77,12 +77,6 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
             }
         });
 
-        cmbCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCityActionPerformed(evt);
-            }
-        });
-
         lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblCommunity.setText("Community Name");
 
@@ -143,22 +137,20 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
                 community.setName(txtCommunityName.getText());
                 CommunityDirectory communityDir = ((City) cmbCity.getSelectedItem()).getCityData();
 //                CommunityDirectory communityDir = new CommunityDirectory();
-                community = communityDir.addCommunity(community);
+                community = communityDir.addCommunity(community);               
                 if (community == null) {
                     JOptionPane.showMessageDialog(this, "Community already present", "Info", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
+                
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Please check the form data", "Info", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             JOptionPane.showMessageDialog(null, "Community added successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+            txtCommunityName.setText("");
         }
     }//GEN-LAST:event_btnSaveCommunityActionPerformed
-
-    private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCityActionPerformed
 
     private void txtCommunityNameKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCommunityNameKeyReleased
         // TODO add your handling code here:
@@ -168,7 +160,7 @@ public class AddCommunityJPanel extends javax.swing.JPanel {
         if (!match.matches()) {
             txtCommunityName.setBackground(Color.red);
         } else {
-            txtCommunityName.setBackground(null);
+            txtCommunityName.setBackground(Color.white);
         }
     }//GEN-LAST:event_txtCommunityNameKeyReleased
 

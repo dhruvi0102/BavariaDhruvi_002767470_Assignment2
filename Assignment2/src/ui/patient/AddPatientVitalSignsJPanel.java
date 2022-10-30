@@ -293,9 +293,12 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
     private void btnSearchPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPatientActionPerformed
         // TODO add your handling code here:
         Patient patient = PatientDirectory.searchPatient(txtSsn.getText());
-        DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
+        
+        String category = patient.getCategory();
+        //DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
         patientInfo = patient;
         if (patientInfo == null) {
+           
             List<City> cities = cityDirectory.getCities();
 
             List<Person> people = PersonDirectory.getPeople();
@@ -313,16 +316,20 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
                     txtPatientAge.setText(String.valueOf(patientInfo.getAge()));
                     PatientDirectory.addPatient(patientInfo);
                     return;
+                   
                 }
+            
             }
             if (patientInfo == null) {
                 JOptionPane.showMessageDialog(this, "SSN number did not match wth any person", "Info", JOptionPane.WARNING_MESSAGE);
             }
         } else {
+           
             this.patientInfo = patient;
             txtFirstName.setText(patientInfo.getFirstName());
             txtLastName.setText(patientInfo.getLastName());
             txtPatientAge.setText(String.valueOf(patientInfo.getAge()));
+        
         }
     }//GEN-LAST:event_btnSearchPatientActionPerformed
 
@@ -401,7 +408,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             txtTemperature.setBackground(Color.red);
         } else {
             lblTempErr.setText(null);
-            txtTemperature.setBackground(null);
+            txtTemperature.setBackground(Color.WHITE);
         }
     }//GEN-LAST:event_txtTemperatureKeyReleased
 
@@ -415,7 +422,7 @@ public class AddPatientVitalSignsJPanel extends javax.swing.JPanel {
             txtPressure.setBackground(Color.red);
         } else {
             lblBPErr.setText(null);
-            txtPressure.setBackground(null);
+            txtPressure.setBackground(Color.white);
         }
     }//GEN-LAST:event_txtPressureKeyReleased
 

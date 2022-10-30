@@ -31,6 +31,11 @@ public class DoctorDirectory {
                 findFirst().orElse(null);
     }
 
+    public static Doctor searchCommunity(String docCommunity) {
+        return doctors.stream().filter(o -> String.valueOf(o.getdocCommunity()).equals(String.valueOf(docCommunity))).
+                findFirst().orElse(null);
+    }
+    
     public static Person addDoctor(Doctor newDoctor) {
         if (doctors != null && !doctors.stream().anyMatch(o -> String.valueOf(o.getSocialSecurityNum()).equals(String.valueOf(newDoctor.getSocialSecurityNum())))) {
             doctors.add(newDoctor);
@@ -40,7 +45,7 @@ public class DoctorDirectory {
             return newDoctor;
         }
         return null;
-    }
+    }  
     
     public Doctor addnewDoctor() {
         Doctor newDoctor = new Doctor();

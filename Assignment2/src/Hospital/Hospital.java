@@ -13,10 +13,7 @@ import java.util.List;
  */
 public class Hospital {
     
-     private String Hospital_Name;
-    private String Address;
-    private int Pincode;
-    private List<Person> people;
+    private String Hospital_Name;
     private String City;
     private String Community;
 
@@ -36,21 +33,7 @@ public class Hospital {
         this.Community = Community;
     }
 
-    public List<Person> getPeople() {
-        return people;
-    }
-
-    public void setPeople(List<Person> people) {
-        this.people = people;
-    }
-
-    public int getPincode() {
-        return Pincode;
-    }
-
-    public void setPincode(int Pincode) {
-        this.Pincode = Pincode;
-    }
+    
 
     public String getHospital_Name() {
         return Hospital_Name;
@@ -60,19 +43,8 @@ public class Hospital {
         this.Hospital_Name = Hospital_Name;
     }
 
-    public String getAddress() {
-        return Address;
-    }
-
-    public void setAddress(String Address) {
-        this.Address = Address;
-    }
    
-    public Hospital() {
-        people = new ArrayList<>();
-    }
-   
-    public Person addHospital(Person newPerson) {
+    /*public Person addHospital(Person newPerson) {
         if (people != null && !people.stream().anyMatch(o -> String.valueOf(o.getSocialSecurityNum()).equals(String.valueOf(newPerson.getSocialSecurityNum())))) {
             people.add(newPerson);
             return newPerson;
@@ -85,7 +57,7 @@ public class Hospital {
 
     public void removeHousePerson(Person person) {
         people.remove(person);
-    }
+    }*/
 
     @Override
     public String toString() {

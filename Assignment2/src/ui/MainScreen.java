@@ -11,8 +11,10 @@ import Hospital.DoctorDirectory;
 import Hospital.HospitalDirectory;
 import Hospital.PatientDirectory;
 import Hospital.PersonDirectory;
+import java.awt.Component;
 import ui.city.CityWorkAreaJPanel;
 import ui.doctor.DoctorWorkAreaJPanel;
+import ui.doctorSearch.DoctorSearchforPatientsJPanel;
 import ui.hospital.HospitalWorkAreaJPanel;
 import ui.patient.PatientWorkAreaJPanel;
 import ui.person.AddPersonInfoJPanel;
@@ -33,9 +35,9 @@ public class MainScreen extends javax.swing.JPanel {
     PatientDirectory patientDirectory;
     DoctorDirectory doctorDirectory;
     HospitalDirectory hospital_details;
-//    public MainScreen() {
-//        initComponents();
-//    }
+   // public MainScreen() {
+    //   initComponents();
+    // }
 
     public MainScreen(JPanel mainWorkArea, CityDirectory cityDirectory, PersonDirectory personDirectory, PatientDirectory patientDirectory, DoctorDirectory doctorDirectory,HospitalDirectory hospital_details) {
         initComponents();
@@ -57,43 +59,44 @@ public class MainScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnPatientDirectory = new javax.swing.JButton();
-        btnPersonDirectory = new javax.swing.JButton();
-        btnCityAdmin2 = new javax.swing.JButton();
-        btnViewData = new javax.swing.JButton();
+        btnEncounter = new javax.swing.JButton();
+        btnPerson = new javax.swing.JButton();
+        btnCommunity = new javax.swing.JButton();
+        btnHospital = new javax.swing.JButton();
         btnDoctor = new javax.swing.JButton();
+        btnDoctorSearch = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
-        btnPatientDirectory.setForeground(new java.awt.Color(0, 102, 102));
-        btnPatientDirectory.setText("Encounter (Doctor)");
-        btnPatientDirectory.addActionListener(new java.awt.event.ActionListener() {
+        btnEncounter.setForeground(new java.awt.Color(0, 102, 102));
+        btnEncounter.setText("Encounter (Doctor)");
+        btnEncounter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPatientDirectoryActionPerformed(evt);
+                btnEncounterActionPerformed(evt);
             }
         });
 
-        btnPersonDirectory.setForeground(new java.awt.Color(0, 102, 102));
-        btnPersonDirectory.setText("Person ");
-        btnPersonDirectory.addActionListener(new java.awt.event.ActionListener() {
+        btnPerson.setForeground(new java.awt.Color(0, 102, 102));
+        btnPerson.setText("Person ");
+        btnPerson.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPersonDirectoryActionPerformed(evt);
+                btnPersonActionPerformed(evt);
             }
         });
 
-        btnCityAdmin2.setForeground(new java.awt.Color(0, 102, 102));
-        btnCityAdmin2.setText("Community");
-        btnCityAdmin2.addActionListener(new java.awt.event.ActionListener() {
+        btnCommunity.setForeground(new java.awt.Color(0, 102, 102));
+        btnCommunity.setText("Community");
+        btnCommunity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCityAdmin2ActionPerformed(evt);
+                btnCommunityActionPerformed(evt);
             }
         });
 
-        btnViewData.setForeground(new java.awt.Color(0, 102, 102));
-        btnViewData.setText("Hospital");
-        btnViewData.addActionListener(new java.awt.event.ActionListener() {
+        btnHospital.setForeground(new java.awt.Color(0, 102, 102));
+        btnHospital.setText("Hospital");
+        btnHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnViewDataActionPerformed(evt);
+                btnHospitalActionPerformed(evt);
             }
         });
 
@@ -105,88 +108,143 @@ public class MainScreen extends javax.swing.JPanel {
             }
         });
 
+        btnDoctorSearch.setForeground(new java.awt.Color(0, 102, 102));
+        btnDoctorSearch.setText("Doctor Search");
+        btnDoctorSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDoctorSearchActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnCityAdmin2, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnViewData, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPatientDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnPersonDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(92, 171, Short.MAX_VALUE))
+                        .addComponent(btnPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnDoctorSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(171, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCityAdmin2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnViewData, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPatientDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEncounter, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnDoctor, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPersonDirectory, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(271, Short.MAX_VALUE))
+                    .addComponent(btnPerson, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDoctorSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(271, 271, 271))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCityAdmin2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCityAdmin2ActionPerformed
+    public void AssignRole (String role){
+        if(role.equals("SystemAdmin")){
+            btnDoctor.setVisible(true);
+            btnPerson.setVisible(true);
+            btnCommunity.setVisible(true);
+            btnHospital.setVisible(true);
+            btnEncounter.setVisible(true);
+            btnDoctorSearch.setVisible(true);
+        }else if (role.equals("Patient")){
+            btnDoctor.setVisible(false);
+            btnDoctorSearch.setVisible(true);
+            btnCommunity.setVisible(false);
+            btnHospital.setVisible(false);
+            btnEncounter.setVisible(false);
+            btnPerson.setVisible(false);
+        }else if (role.equals("Doctor")){
+            btnDoctor.setVisible(false);
+            btnDoctorSearch.setVisible(false);
+            btnCommunity.setVisible(false);
+            btnHospital.setVisible(false);
+            btnEncounter.setVisible(true);
+            btnPerson.setVisible(false);
+        }else if (role.equals("HospitalAdmin")){
+            btnDoctor.setVisible(false);
+            btnDoctorSearch.setVisible(true);
+            btnCommunity.setVisible(false);
+            btnHospital.setVisible(true);
+            btnEncounter.setVisible(true);
+            btnPerson.setVisible(false);
+        }
+        
+    }
+    
+    private void btnCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCommunityActionPerformed
         // TODO add your handling code here:
         CityWorkAreaJPanel cwjp = new CityWorkAreaJPanel(mainWorkArea, cityDirectory);
         mainWorkArea.add("WordAreaJPanel", cwjp);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
-    }//GEN-LAST:event_btnCityAdmin2ActionPerformed
+    }//GEN-LAST:event_btnCommunityActionPerformed
 
-    private void btnPersonDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonDirectoryActionPerformed
+    private void btnPersonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonActionPerformed
         // TODO add your handling code here:
         PersonWorkAreaJPanel pwajp = new PersonWorkAreaJPanel(mainWorkArea, cityDirectory, personDirectory);
         mainWorkArea.add("PersonWorkAreaJPanel", pwajp);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
-    }//GEN-LAST:event_btnPersonDirectoryActionPerformed
+    }//GEN-LAST:event_btnPersonActionPerformed
 
-    private void btnPatientDirectoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPatientDirectoryActionPerformed
+    private void btnEncounterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEncounterActionPerformed
         // TODO add your handling code here:
         PatientWorkAreaJPanel pwajp = new PatientWorkAreaJPanel(mainWorkArea, cityDirectory, patientDirectory);
         mainWorkArea.add("PatientWorkAreaJPanel", pwajp);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
-    }//GEN-LAST:event_btnPatientDirectoryActionPerformed
+    }//GEN-LAST:event_btnEncounterActionPerformed
 
-    private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed
+    private void btnHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHospitalActionPerformed
         // TODO add your handling code here:
         HospitalWorkAreaJPanel vcvijp = new HospitalWorkAreaJPanel(mainWorkArea, cityDirectory,hospital_details);
         mainWorkArea.add("ViewCommnityVitalInfoJPanel", vcvijp);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
         
-    }//GEN-LAST:event_btnViewDataActionPerformed
+    }//GEN-LAST:event_btnHospitalActionPerformed
 
     private void btnDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorActionPerformed
         // TODO add your handling code here:
-        DoctorWorkAreaJPanel vcvijp = new DoctorWorkAreaJPanel(mainWorkArea, cityDirectory, doctorDirectory);
+        DoctorWorkAreaJPanel vcvijp = new DoctorWorkAreaJPanel(mainWorkArea, cityDirectory, doctorDirectory,hospital_details);
         mainWorkArea.add("ViewCommnityVitalInfoJPanel", vcvijp);
         CardLayout layout = (CardLayout) mainWorkArea.getLayout();
         layout.next(mainWorkArea);
     }//GEN-LAST:event_btnDoctorActionPerformed
 
+    private void btnDoctorSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoctorSearchActionPerformed
+        // TODO add your handling code here:
+        DoctorSearchforPatientsJPanel dsearch = new DoctorSearchforPatientsJPanel(mainWorkArea, cityDirectory, doctorDirectory);
+        mainWorkArea.add("ViewCommnityVitalInfoJPanel", dsearch);
+        CardLayout layout = (CardLayout) mainWorkArea.getLayout();
+        layout.next(mainWorkArea);
+    }//GEN-LAST:event_btnDoctorSearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCityAdmin2;
+    private javax.swing.JButton btnCommunity;
     private javax.swing.JButton btnDoctor;
-    private javax.swing.JButton btnPatientDirectory;
-    private javax.swing.JButton btnPersonDirectory;
-    private javax.swing.JButton btnViewData;
+    private javax.swing.JButton btnDoctorSearch;
+    private javax.swing.JButton btnEncounter;
+    private javax.swing.JButton btnHospital;
+    private javax.swing.JButton btnPerson;
     // End of variables declaration//GEN-END:variables
+
+     
 }

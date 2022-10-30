@@ -76,12 +76,6 @@ public class AddHouseJPanel extends javax.swing.JPanel {
         lblCityName.setForeground(new java.awt.Color(0, 102, 102));
         lblCityName.setText("Select City");
 
-        cmbCommunity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCommunityActionPerformed(evt);
-            }
-        });
-
         lblCityName1.setForeground(new java.awt.Color(0, 102, 102));
         lblCityName1.setText("Select Community");
 
@@ -150,22 +144,20 @@ public class AddHouseJPanel extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "House already present", "Info", JOptionPane.WARNING_MESSAGE);
                 return;
             }
+            txtHouseName.setText("");
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Please check the form data", "Info", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        JOptionPane.showMessageDialog(null, "house address added successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
-                }
+        JOptionPane.showMessageDialog(null, "House Number added successfully!!", "Info", JOptionPane.INFORMATION_MESSAGE);
+        txtHouseName.setText("");
+        }
     }//GEN-LAST:event_btnSaveHouseActionPerformed
 
     private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
         // TODO add your handling code here:
         populateCommunityCombo();
     }//GEN-LAST:event_cmbCityActionPerformed
-
-    private void cmbCommunityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCommunityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCommunityActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

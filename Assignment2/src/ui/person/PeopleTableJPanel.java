@@ -60,32 +60,32 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         btnPeopleSearch = new javax.swing.JButton();
         cmbCommunity = new javax.swing.JComboBox();
         cmbCity = new javax.swing.JComboBox();
-        lblLName = new javax.swing.JLabel();
-        lblCommunity = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblPeopleTable = new javax.swing.JTable();
-        txtCity = new javax.swing.JTextField();
-        lblPHouseName = new javax.swing.JLabel();
         btnPersonUpdate = new javax.swing.JButton();
         lblSearchPeople = new javax.swing.JLabel();
-        lblSSN = new javax.swing.JLabel();
-        txtSSN = new javax.swing.JTextField();
-        lblFName = new javax.swing.JLabel();
-        txtFName = new javax.swing.JTextField();
         txtSearchBySSN = new javax.swing.JTextField();
         btnPersonView = new javax.swing.JButton();
         btnDeletePerson = new javax.swing.JButton();
-        txtCommunity = new javax.swing.JTextField();
-        txtLName = new javax.swing.JTextField();
-        lblPhoneNumber = new javax.swing.JLabel();
-        txtPhoneNumber = new javax.swing.JTextField();
         lblCity = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        lblAge = new javax.swing.JLabel();
         txtAge = new javax.swing.JTextField();
         lblGender = new javax.swing.JLabel();
         txtGender = new javax.swing.JTextField();
         lblEmail = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        lblLName = new javax.swing.JLabel();
+        lblCommunity = new javax.swing.JLabel();
+        txtCity = new javax.swing.JTextField();
+        lblPHouseName1 = new javax.swing.JLabel();
+        lblSSN = new javax.swing.JLabel();
+        txtSSN = new javax.swing.JTextField();
+        lblFName = new javax.swing.JLabel();
+        txtFName = new javax.swing.JTextField();
+        txtCommunity = new javax.swing.JTextField();
+        txtLName = new javax.swing.JTextField();
+        lblPhoneNumber = new javax.swing.JLabel();
+        txtPhoneNumber = new javax.swing.JTextField();
 
         btnPeopleSearch.setText("Search");
         btnPeopleSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -102,25 +102,19 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(204, 204, 255));
 
-        lblLName.setForeground(new java.awt.Color(0, 102, 102));
-        lblLName.setText("LastName:");
-
-        lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
-        lblCommunity.setText("Community:");
-
         tblPeopleTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "FirstName", "LastName", "SSN", "Phone Number", "City", "Community", "Age", "Gender", "Email"
+                "FirstName", "LastName", "SSN", "Phone Number", "City", "Community", "Age", "Gender", "Email", "Category"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -128,17 +122,6 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane1.setViewportView(tblPeopleTable);
-
-        txtCity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtCityActionPerformed(evt);
-            }
-        });
-        txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                txtCityKeyReleased(evt);
-            }
-        });
 
         btnPersonUpdate.setForeground(new java.awt.Color(0, 102, 102));
         btnPersonUpdate.setText("UPDATE");
@@ -149,12 +132,6 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         });
 
         lblSearchPeople.setText("Search By SSN:");
-
-        lblSSN.setForeground(new java.awt.Color(0, 102, 102));
-        lblSSN.setText("SSN:");
-
-        lblFName.setForeground(new java.awt.Color(0, 102, 102));
-        lblFName.setText("FirstName:");
 
         txtSearchBySSN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,14 +155,11 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblPhoneNumber.setForeground(new java.awt.Color(0, 102, 102));
-        lblPhoneNumber.setText("Phone Number:");
-
         lblCity.setForeground(new java.awt.Color(0, 102, 102));
         lblCity.setText("City:");
 
-        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("Age:");
+        lblAge.setForeground(new java.awt.Color(0, 102, 102));
+        lblAge.setText("Age:");
 
         lblGender.setForeground(new java.awt.Color(0, 102, 102));
         lblGender.setText("Gender:");
@@ -193,26 +167,67 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         lblEmail.setForeground(new java.awt.Color(0, 102, 102));
         lblEmail.setText("Email:");
 
+        lblLName.setForeground(new java.awt.Color(0, 102, 102));
+        lblLName.setText("LastName:");
+
+        lblCommunity.setForeground(new java.awt.Color(0, 102, 102));
+        lblCommunity.setText("Community:");
+
+        txtCity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCityActionPerformed(evt);
+            }
+        });
+        txtCity.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCityKeyReleased(evt);
+            }
+        });
+
+        lblSSN.setForeground(new java.awt.Color(0, 102, 102));
+        lblSSN.setText("SSN:");
+
+        lblFName.setForeground(new java.awt.Color(0, 102, 102));
+        lblFName.setText("FirstName:");
+
+        lblPhoneNumber.setForeground(new java.awt.Color(0, 102, 102));
+        lblPhoneNumber.setText("Phone Number:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(btnPersonView)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDeletePerson)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCommunity)
+                            .addComponent(lblFName)
+                            .addComponent(lblLName)
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblSSN)
-                                        .addGap(63, 63, 63)
-                                        .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(lblCity)
+                                .addGap(171, 171, 171)
+                                .addComponent(lblPHouseName1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblPhoneNumber)
+                            .addComponent(lblAge)
+                            .addComponent(lblGender)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(txtFName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtLName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(lblSSN)
+                                    .addGap(63, 63, 63)
+                                    .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
                                 .addComponent(lblEmail)
                                 .addGap(56, 56, 56)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,48 +236,36 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                                         .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtGender, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(txtAge, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblCommunity)
-                            .addComponent(lblFName)
-                            .addComponent(lblLName)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCity)
-                                .addGap(171, 171, 171)
-                                .addComponent(lblPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblPhoneNumber))
+                                        .addComponent(txtPhoneNumber, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 729, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnPersonUpdate)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnPersonView)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnDeletePerson))
-                            .addComponent(lblGender))
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(301, 301, 301)
-                .addComponent(lblSearchPeople)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSearchBySSN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnPersonUpdate)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(lblSearchPeople)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtSearchBySSN, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(26, 26, 26)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSearchPeople)
+                    .addComponent(txtSearchBySSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPersonUpdate)
+                    .addComponent(btnPersonView)
+                    .addComponent(btnDeletePerson))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSSN)
                     .addComponent(txtSSN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -279,7 +282,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                     .addComponent(lblCommunity)
                     .addComponent(txtCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblPHouseName, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPHouseName1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -291,7 +294,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                     .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblAge)
                     .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -301,18 +304,7 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblEmail)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSearchPeople, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtSearchBySSN, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPersonUpdate)
-                    .addComponent(btnPersonView)
-                    .addComponent(btnDeletePerson))
-                .addGap(27, 27, 27))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -341,14 +333,6 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         populateCommunityCombo();
     }//GEN-LAST:event_cmbCityActionPerformed
 
-    private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCityActionPerformed
-
-    private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCityKeyReleased
-
     private void btnPersonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPersonUpdateActionPerformed
         // TODO add your handling code here:
         int i= tblPeopleTable.getSelectedRow();
@@ -373,13 +357,13 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
             //set updated value on table row
             model.setValueAt(FirstName, tblPeopleTable.getSelectedRow(),0);
             model.setValueAt(LastName, tblPeopleTable.getSelectedRow(),1);
-            model.setValueAt(SSN, tblPeopleTable.getSelectedRow(),1);
-            model.setValueAt(Mobile_Number, tblPeopleTable.getSelectedRow(),2);
-            model.setValueAt(City, tblPeopleTable.getSelectedRow(),3);
-            model.setValueAt(Community, tblPeopleTable.getSelectedRow(),4);
-            model.setValueAt(Age,tblPeopleTable.getSelectedRow(),5);
-            model.setValueAt(Gender,tblPeopleTable.getSelectedRow(),5);
-            model.setValueAt(Email,tblPeopleTable.getSelectedRow(),5);
+            model.setValueAt(SSN, tblPeopleTable.getSelectedRow(),2);
+            model.setValueAt(Mobile_Number, tblPeopleTable.getSelectedRow(),3);
+            model.setValueAt(City, tblPeopleTable.getSelectedRow(),4);
+            model.setValueAt(Community, tblPeopleTable.getSelectedRow(),5);
+            model.setValueAt(Age,tblPeopleTable.getSelectedRow(),6);
+            model.setValueAt(Gender,tblPeopleTable.getSelectedRow(),7);
+            model.setValueAt(Email,tblPeopleTable.getSelectedRow(),8);
            
             // After successfully setting, display the data:
             JOptionPane.showMessageDialog(null,"Update Successful!");
@@ -478,6 +462,14 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_txtSearchBySSNActionPerformed
 
+    private void txtCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCityActionPerformed
+
+    private void txtCityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCityKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCityKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDeletePerson;
@@ -486,15 +478,15 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnPersonView;
     private javax.swing.JComboBox cmbCity;
     private javax.swing.JComboBox cmbCommunity;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblAge;
     private javax.swing.JLabel lblCity;
     private javax.swing.JLabel lblCommunity;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblFName;
     private javax.swing.JLabel lblGender;
     private javax.swing.JLabel lblLName;
-    private javax.swing.JLabel lblPHouseName;
+    private javax.swing.JLabel lblPHouseName1;
     private javax.swing.JLabel lblPhoneNumber;
     private javax.swing.JLabel lblSSN;
     private javax.swing.JLabel lblSearchPeople;
@@ -544,21 +536,10 @@ public class PeopleTableJPanel extends javax.swing.JPanel {
                 row[6] = person.getAge();
                 row[7] = person.getGender();
                 row[8] = person.getEmail();
-
+                row[9] = person.getCategory();
                 model.addRow(row);
             }
-            
-            
-            
-//            DateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy");
-//            txtPFirstName.setText(personInformation.getPersonDemographics().getFirstName());
-//            txtPLastName.setText(personInformation.getPersonDemographics().getLastName());
-//            txtPPhoneNum.setText(String.valueOf(personInformation.getPersonDemographics().getPhoneNumber()));
-//            txtPDob.setText(dateFormat.format(personInformation.getPersonDemographics().getDob()));
-//            txtPAge.setText(String.valueOf(personInformation.getPersonDemographics().getAge()));
-//            txtPHeight.setText(String.valueOf(personInformation.getPersonDemographics().getHeight()));
-//            txtPWeight.setText(String.valueOf(personInformation.getPersonDemographics().getWeight()));
-//            txtPSsn.setText(String.valueOf(personInformation.getPersonDemographics().getSocialSecurityNum()));
+
         } 
 
 }

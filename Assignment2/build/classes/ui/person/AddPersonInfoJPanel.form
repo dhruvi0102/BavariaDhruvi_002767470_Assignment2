@@ -30,6 +30,7 @@
                           <Component id="lblGender" alignment="0" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="lblEmail" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lblPSsn" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="514" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -47,13 +48,13 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="238" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="lblPFirstNameErr" alignment="0" pref="32" max="32767" attributes="0"/>
+                                  <Component id="lblPFirstNameErr" alignment="0" pref="30" max="32767" attributes="0"/>
                                   <Component id="lblPLastNameErr" alignment="0" max="32767" attributes="0"/>
                                   <Component id="lblPPhoneNumErr" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace pref="24" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -96,6 +97,7 @@
                                   <Component id="txtEmail" linkSize="1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtPSsn" linkSize="1" alignment="0" max="32767" attributes="0"/>
                                   <Component id="txtPAge" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
+                                  <Component id="jComboBox1" alignment="0" min="-2" pref="137" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -105,14 +107,14 @@
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="lblPDemographics" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="lblPHouseName" min="-2" pref="78" max="-2" attributes="0"/>
                           <Component id="btnSavePerson" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="lblPHouseName" alignment="0" min="-2" pref="78" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="lblPDemographics" alignment="0" min="-2" pref="183" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
@@ -171,9 +173,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="lblPLastName" linkSize="4" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="txtPLastName" linkSize="5" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="lblPLastName" linkSize="4" min="-2" pref="22" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -201,8 +203,13 @@
                   <Component id="txtPSsn" linkSize="5" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="btnSavePerson" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="108" max="32767" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -449,6 +456,27 @@
             <StringItem index="0" value="Female"/>
             <StringItem index="1" value="Male"/>
             <StringItem index="2" value="Others"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Category:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jComboBox1">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="Doctor"/>
+            <StringItem index="1" value="Patient"/>
           </StringArray>
         </Property>
       </Properties>

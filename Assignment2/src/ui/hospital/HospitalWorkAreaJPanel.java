@@ -15,7 +15,7 @@ import ui.MainScreen;
 
 /**
  *
- * @author hetal
+ * @author dhruv
  */
 public class HospitalWorkAreaJPanel extends javax.swing.JPanel {
 
@@ -32,6 +32,7 @@ public class HospitalWorkAreaJPanel extends javax.swing.JPanel {
          this.mainWorkArea = mainWorkArea;
         this.cityDirectory = cityDirectory;
         this.hospital_details = hospital_details;
+        
     }
 
     /**
@@ -127,9 +128,9 @@ public class HospitalWorkAreaJPanel extends javax.swing.JPanel {
     private void btnAddHospitalInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddHospitalInfoActionPerformed
         // TODO add your handling code here:
         
-        AddHospitalInfoJPanel apijp = new AddHospitalInfoJPanel(WorkAreaJPanel, cityDirectory);
+        AddHospitalInfoJPanel apijp = new AddHospitalInfoJPanel(WorkAreaJPanel, cityDirectory, hospital_details);
         
-        WorkAreaJPanel.add("AddCityJPanel", apijp);
+        WorkAreaJPanel.add("AddHospitalJPanel", apijp);
         CardLayout layout = (CardLayout) WorkAreaJPanel.getLayout();
         layout.next(WorkAreaJPanel); 
 
@@ -139,7 +140,7 @@ public class HospitalWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         ViewHospitalJPanel p= new ViewHospitalJPanel(WorkAreaJPanel,cityDirectory,hospital_details);
         //ViewHospitalJPanel ptjp = new ViewHospitalJPanel(WorkAreaJPanel, cityDirectory, hospital_details);
-        WorkAreaJPanel.add("PatientTableJPanel", p);
+        WorkAreaJPanel.add("ViewTableJPanel", p);
         CardLayout layout = (CardLayout) WorkAreaJPanel.getLayout();
         layout.next(WorkAreaJPanel);
     }//GEN-LAST:event_btnViewHospitalActionPerformed

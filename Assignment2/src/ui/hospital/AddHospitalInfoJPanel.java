@@ -15,7 +15,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author hetal
+ * @author dhruv
  */
 public class AddHospitalInfoJPanel extends javax.swing.JPanel {
 
@@ -25,11 +25,16 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
     
     JPanel mainWorkArea;
     CityDirectory cityDirectory;
+    HospitalDirectory hospitalDirectory;
+    Hospital hospitalInfo;
     
-    AddHospitalInfoJPanel(JPanel mainWorkArea, CityDirectory cityDirectory) {
+    AddHospitalInfoJPanel(JPanel mainWorkArea, CityDirectory cityDirectory,HospitalDirectory hospitalDirectory) {
         initComponents();
         this.mainWorkArea = mainWorkArea;
         this.cityDirectory = cityDirectory;
+        this.hospitalDirectory= hospitalDirectory;
+        //cmbCity.setSelectedItem(null);
+        populateCityCombo();
     }
 
 
@@ -44,13 +49,13 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
 
         lblSelectCity = new javax.swing.JLabel();
         lblSelectCommunity = new javax.swing.JLabel();
-        cmbCommunity = new javax.swing.JComboBox<>();
+        cmbCommunity = new javax.swing.JComboBox();
         lblHospitalName = new javax.swing.JLabel();
         txtHospitalName = new javax.swing.JTextField();
         lblHospitalAdd = new javax.swing.JLabel();
         lblCreateHospital = new javax.swing.JLabel();
         btnSaveHospital = new javax.swing.JButton();
-        cmbCity = new javax.swing.JComboBox<>();
+        cmbCity = new javax.swing.JComboBox();
 
         setBackground(new java.awt.Color(204, 204, 255));
 
@@ -59,8 +64,6 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
 
         lblSelectCommunity.setForeground(new java.awt.Color(0, 102, 102));
         lblSelectCommunity.setText("Select Community:");
-
-        cmbCommunity.setSelectedIndex(-1);
 
         lblHospitalName.setForeground(new java.awt.Color(0, 102, 102));
         lblHospitalName.setText("Hospital Name:");
@@ -76,7 +79,6 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
             }
         });
 
-        cmbCity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Boston", "Virginia" }));
         cmbCity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCityActionPerformed(evt);
@@ -134,54 +136,30 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
 
     private void btnSaveHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveHospitalActionPerformed
         // TODO add your handling code here:
+        String Hospital_Name=txtHospitalName.getText();
+        String City = cmbCity.getSelectedItem().toString();
+        String Community= cmbCommunity.getSelectedItem().toString();
         
-        Hospital hospitalDemographics= new Hospital();
-        if(((City) cmbCity.getSelectedItem())==null){
-           JOptionPane.showMessageDialog(this, "City not present", "Info", JOptionPane.WARNING_MESSAGE);
-            return; 
-        }
-        if(((Community) cmbCommunity.getSelectedItem())==null){
-           JOptionPane.showMessageDialog(this, "Community not present int he city", "Info", JOptionPane.WARNING_MESSAGE);
-            return; 
-            
-        }
+        Hospital Hospital_details= hospitalDirectory.addNewData();
         
-        if (ValidFields()) {        
-         if (!(txtHospitalName.getText().matches("^[a-zA-Z]*$"))) {
-                JOptionPane.showMessageDialog(this, "Please enter valid Hospital name. Hospital Name can only contain alphabets", "Info", JOptionPane.INFORMATION_MESSAGE);
-                return;
-                
-        }
-         hospitalDemographics.setHospital_Name(txtHospitalName.getText());
-         hospitalDemographics.setCity(cmbCity.getSelectedItem().toString());
-         hospitalDemographics.setCommunity(cmbCommunity.getSelectedItem().toString());
-         JOptionPane.showMessageDialog(this, "Hospital demographics added");
-        }
+        Hospital_details.setCity(City);
+        Hospital_details.setCommunity(Community);
+        Hospital_details.setHospital_Name(Hospital_Name);
+      
+        JOptionPane.showMessageDialog(this, "Hospital demographics added");
+       
+        txtHospitalName.setText("");
     }//GEN-LAST:event_btnSaveHospitalActionPerformed
 
     private void cmbCityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCityActionPerformed
         // TODO add your handling code here:
-        if(cmbCity.getSelectedItem().equals("Boston")){
-            cmbCommunity.removeAllItems();
-            cmbCommunity.addItem("Bolyston Street");
-            cmbCommunity.addItem("Park Drive");
-            cmbCommunity.setSelectedItem(null);
-            
-        }
-        else if(cmbCity.getSelectedItem().equals("Virginia")){
-            cmbCommunity.removeAllItems();
-            cmbCommunity.addItem("Richmond");
-            cmbCommunity.addItem("Alexandria");
-            cmbCommunity.setSelectedItem(null);
-        }
-        
+        populateCommunityCombo();
     }//GEN-LAST:event_cmbCityActionPerformed
-    
-    
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSaveHospital;
-    private javax.swing.JComboBox<String> cmbCity;
-    private javax.swing.JComboBox<String> cmbCommunity;
+    private javax.swing.JComboBox cmbCity;
+    private javax.swing.JComboBox cmbCommunity;
     private javax.swing.JLabel lblCreateHospital;
     private javax.swing.JLabel lblHospitalAdd;
     private javax.swing.JLabel lblHospitalName;
@@ -194,16 +172,16 @@ public class AddHospitalInfoJPanel extends javax.swing.JPanel {
         
         cmbCity.removeAllItems();
         for(City c: cityDirectory.getCities()){
-            cmbCity.addItem(c.toString());
-        }
+            cmbCity.addItem(c);
+       }
     }
     
     private void populateCommunityCombo() {
         cmbCommunity.removeAllItems();
         if (cmbCity.getSelectedItem() != null) {
             for (Community s : ((City) cmbCity.getSelectedItem()).getCityData().getCommunities()) {
-                cmbCommunity.addItem(s.toString());
-            }
+                cmbCommunity.addItem(s);
+           }
         }
     }
 

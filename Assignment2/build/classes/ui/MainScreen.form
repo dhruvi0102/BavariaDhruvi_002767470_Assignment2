@@ -23,21 +23,23 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnCityAdmin2" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="btnCommunity" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnViewData" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="btnHospital" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnPatientDirectory" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="btnEncounter" min="-2" pref="145" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="btnDoctor" min="-2" pref="145" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btnPersonDirectory" min="-2" pref="145" max="-2" attributes="0"/>
+                      <Component id="btnPerson" min="-2" pref="145" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="btnDoctorSearch" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="92" pref="171" max="32767" attributes="0"/>
+              <EmptySpace pref="171" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -46,22 +48,23 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnCityAdmin2" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="btnViewData" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="btnPatientDirectory" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="btnCommunity" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="btnHospital" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="btnEncounter" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnDoctor" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="btnPersonDirectory" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="btnPerson" alignment="3" min="-2" pref="56" max="-2" attributes="0"/>
+                  <Component id="btnDoctorSearch" min="-2" pref="56" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="271" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="btnPatientDirectory">
+    <Component class="javax.swing.JButton" name="btnEncounter">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
@@ -69,10 +72,10 @@
         <Property name="text" type="java.lang.String" value="Encounter (Doctor)"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPatientDirectoryActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEncounterActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnPersonDirectory">
+    <Component class="javax.swing.JButton" name="btnPerson">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
@@ -80,10 +83,10 @@
         <Property name="text" type="java.lang.String" value="Person "/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPersonDirectoryActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPersonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnCityAdmin2">
+    <Component class="javax.swing.JButton" name="btnCommunity">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
@@ -91,10 +94,10 @@
         <Property name="text" type="java.lang.String" value="Community"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCityAdmin2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCommunityActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnViewData">
+    <Component class="javax.swing.JButton" name="btnHospital">
       <Properties>
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="66" green="66" red="0" type="rgb"/>
@@ -102,7 +105,7 @@
         <Property name="text" type="java.lang.String" value="Hospital"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnViewDataActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHospitalActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btnDoctor">
@@ -114,6 +117,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoctorActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDoctorSearch">
+      <Properties>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="66" green="66" red="0" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Doctor Search"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoctorSearchActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

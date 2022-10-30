@@ -22,6 +22,15 @@ public class Person {
     private String Gender;
     private int socialSecurityNum;
     private String Community;
+    private String Category;
+
+    public String getCategory() {
+        return Category;
+    }
+
+    public void setCategory(String Category) {
+        this.Category = Category;
+    }
 
     public String getCommunity() {
         return Community;

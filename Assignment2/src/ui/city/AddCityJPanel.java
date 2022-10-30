@@ -114,6 +114,7 @@ public class AddCityJPanel extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "City already present", "Info", JOptionPane.WARNING_MESSAGE);
                     return;
                 }
+                txtCityName.setText("");
             } catch (NumberFormatException e) {
                 JOptionPane.showMessageDialog(this, "Please check the form data", "Info", JOptionPane.ERROR_MESSAGE);
                 return;
@@ -131,7 +132,7 @@ public class AddCityJPanel extends javax.swing.JPanel {
         if (!match.matches()) {
             txtCityName.setBackground(Color.red);
         } else {
-            txtCityName.setBackground(null);
+            txtCityName.setBackground(Color.white);
         }
     }//GEN-LAST:event_txtCityNameKeyReleased
 

@@ -44,15 +44,20 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
+        workAreaJPanel = new javax.swing.JPanel();
         menuBarJPanel = new javax.swing.JPanel();
         btnBack = new javax.swing.JButton();
         btnAddPatientVital = new javax.swing.JButton();
         btnViewPatientHistory = new javax.swing.JButton();
-        workAreaJPanel = new javax.swing.JPanel();
 
+        setBackground(new java.awt.Color(204, 204, 255));
         setForeground(new java.awt.Color(204, 204, 255));
 
         jSplitPane1.setDividerLocation(80);
+
+        workAreaJPanel.setBackground(new java.awt.Color(204, 204, 255));
+        workAreaJPanel.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(workAreaJPanel);
 
         menuBarJPanel.setBackground(new java.awt.Color(204, 204, 255));
 
@@ -109,25 +114,18 @@ public class PatientWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane1.setLeftComponent(menuBarJPanel);
 
-        workAreaJPanel.setBackground(new java.awt.Color(204, 204, 255));
-        workAreaJPanel.setLayout(new java.awt.CardLayout());
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(workAreaJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 557, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 669, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSplitPane1)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(workAreaJPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
